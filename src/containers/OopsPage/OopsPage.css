@@ -1,0 +1,96 @@
+*{
+    box-sizing: border-box;
+}
+
+.oops_page img{
+    /*vertical-align: middle;*/
+    border: 0;
+    height: 250px;
+}
+
+.oops_page a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.oops_page .button {
+    border-radius: 4px;
+    background-color: #000000;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 12px;
+    width: 220px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    outline: none;
+}
+
+.oops_page .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.oops_page .button:active{
+    opacity: 0.7;
+    transition: 0.1;
+}
+
+.oops_page .button span:after {
+    content: '\00AB';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
+}
+
+.oops_page .button:hover span {
+    padding-left: 25px;
+}
+
+.oops_page .button:hover span:after {
+    opacity: 1;
+    left: 0;
+}
+
+.oops_page .paper-404 .paper-404-content h2{
+    font-size: 64px;
+    color: #000000;
+    margin-bottom: 0;
+}
+
+.oops_page .paper-404 .paper-404-content h1{
+    margin-bottom: 30px;
+}
+
+.oops_page .paper-404 img {
+    display: block;
+    margin: 0 auto 25px auto;
+    max-width: 100%;
+}
+
+.oops_page .title{
+    font-size: 150px;
+    color: #000000;
+}
+
+.oops_page .paper-404 {
+    height: 100vh;
+    text-align: center;
+    padding-top: 0px;
+    margin: 0;
+    font-weight: 400;
+    background: #ffffff;
+    font-family: 'Paytone One', sans-serif;
+    
+}
+
+
+
+

@@ -1,0 +1,256 @@
+@import "./../../styles/variables.less";
+
+/* Style for Sider */
+/* Style for Uncollapse Sider */
+.logo {
+    height: 64px;
+    width: 60px;
+    padding-left: 1px;
+    padding-top: 1px;   
+} 
+
+.sider {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 200px;
+  min-height: 100vh;
+  position: relative;
+  background-color: @background-sider !important;
+  min-width: 0;
+  z-index: 1;
+}
+
+/*menu, submenu title*/
+.sider__link--white {
+  font-size: @font-size-menu;
+  overflow: hidden;
+  color: @font-color-dark !important;
+  text-transform: uppercase;
+}
+
+.sider__link--white:focus,
+.sider__link--white:hover {
+  text-decoration: none;
+  color: @background-color-3;
+}
+
+.sider .ant-menu-item i,
+.sider .ant-menu-submenu-title i{
+  color: @background-color-3;
+  font-size: @font-size-menu;
+  margin-right: 10px;
+}
+
+.sider .ant-menu-item > a {
+  display: block;
+  color: @background-color-3;
+}
+
+.sider .ant-menu-item-selected i,
+.sider .ant-menu-item-selected .sider__link--white,
+.sider .ant-menu-item:hover i,
+.sider .ant-menu-item:hover .sider__link--white,
+.sider .ant-menu-submenu-title:hover i,
+.sider .ant-menu-submenu-title:hover .sider__link--white,
+.sider .ant-menu-submenu-open .ant-menu-submenu-title i,
+.sider  .ant-menu-submenu-open .ant-menu-submenu-title .sider__link--white{
+  color: @background-color-3;
+}
+
+.sider .ant-menu,
+.sider .ant-menu-light,
+.sider .ant-menu-root,
+.sider .ant-menu-inline{
+  background-color: @background-color-2;
+}
+
+.sider .ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background: @background-color-2;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.sider .ant-menu-inline,
+.sider .ant-menu-vertical,
+.sider .ant-menu-vertical-left {
+border-right: 0px;
+}
+
+.sider .ant-menu-inline .ant-menu-item {
+width: calc(100%);
+}
+
+.sider .ant-menu-vertical .ant-menu-item:hover,
+.sider .ant-menu-vertical-left .ant-menu-item:hover,
+.sider .ant-menu-vertical-right .ant-menu-item:hover,
+.sider .ant-menu-inline .ant-menu-item:hover,
+.sider .ant-menu-inline-collapsed .ant-menu-item:hover {
+  background-color: @primary-6;
+}
+
+.sider .ant-menu .ant-menu-item,
+.sider .ant-menu-vertical .ant-menu-item,
+.sider .ant-menu-vertical-left .ant-menu-item,
+.sider .ant-menu-vertical-right .ant-menu-item,
+.sider .ant-menu-inline .ant-menu-item,
+.sider .ant-menu-vertical .ant-menu-submenu-title,
+.sider .ant-menu-vertical-left .ant-menu-submenu-title,
+.sider .ant-menu-vertical-right .ant-menu-submenu-title,
+.sider .ant-menu-inline .ant-menu-submenu-title {
+  padding: 0 16px;
+  font-size: @font-size-menu;
+  line-height: 48px !important;
+  background-color: @background-color-2;
+  height: 48px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  overflow: hidden;
+}
+
+.sider .ant-menu-sub .sider__link--white{
+  padding: 0px; 
+}
+
+.ant-menu-vertical .ant-menu-item:after, 
+.ant-menu-vertical-left .ant-menu-item:after, 
+.ant-menu-vertical-right .ant-menu-item:after, 
+.ant-menu-inline .ant-menu-item:after {
+  content: "";
+  border-right: 0px;
+}
+
+.sider .ant-menu-item-selected {
+  background: transparent !important;
+  border-right: 4px solid @primary-6 !important;
+}
+
+.sider .ant-menu-item-group-list .ant-menu-item{
+  display: none;
+}
+
+.sider .ant-menu-item-group:hover .ant-menu-item,
+.sider .ant-menu-item-group .ant-menu-item-selected,
+.sider .ant-menu-item-group .ant-menu-item-selected ~ .ant-menu-item {
+  display: block;
+}
+
+/* Style for Collapsed Sider */
+.sider .ant-menu-inline-collapsed {
+  width: 100%;
+}
+
+.sider .ant-menu-inline-collapsed .ant-menu-submenu ul{
+  height: 0px;
+}
+
+.sider .ant-menu-inline-collapsed .ant-menu-item-selected,
+.sider .ant-menu-inline-collapsed .ant-menu-submenu-selected {
+  border-right: 4px solid @primary-6 !important;
+  &:hover{
+    background: @primary-6 !important;
+  }
+}
+
+.ant-menu-inline-collapsed > .ant-menu-item, 
+.ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item, 
+.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+  left: 0;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  padding: 0 0 !important;
+  &:hover{
+    background: @primary-6 !important;
+  }
+}
+
+.sider .ant-menu-inline-collapsed > .ant-menu-item,
+.sider .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
+.sider .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+  left: 0;
+  text-overflow: clip;
+  padding: 0 23px !important;
+}
+
+.sider .ant-menu-inline-collapsed > .ant-menu-item:hover{
+  width: 220px;
+  display: block;
+}
+
+.sider .ant-menu-inline-collapsed > .ant-menu-item:hover .sider__link--white{
+  display: inline;
+  padding-left: 40px;
+}
+
+.sider .ant-menu-inline-collapsed > .ant-menu-item .sider__link--white,
+.sider .ant-menu-inline-collapsed .ant-menu-submenu-title .sider__link--white{
+  display: none;
+}
+
+.ant-menu-submenu-placement-rightTop,
+.ant-menu-submenu-hidden{
+  left: 60px;
+}
+
+.ant-menu-inline-collapsed-tooltip {
+  display: none !important;
+}
+
+.ant-menu-submenu-popup {
+  background: @background-sider !important;
+  border-radius: 0 !important;
+  z-index: 1050;
+  left: 60px !important;
+  .ant-menu-item{
+    background: none !important;
+    border-radius: 0px !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    margin: 0px 0px !important;
+  }
+  .ant-menu-sub{
+    border-radius: 0px;
+    background-color: @background-sider !important;
+  }
+  
+}
+
+.ant-menu-vertical .ant-menu-item:not(:last-child), 
+.ant-menu-vertical-left .ant-menu-item:not(:last-child), 
+.ant-menu-vertical-right .ant-menu-item:not(:last-child), 
+.ant-menu-inline .ant-menu-item:not(:last-child) {
+  margin-bottom: 0px;
+}
+
+.ant-menu-submenu-popup .sider__link--white{
+  color: #fff;
+}
+
+.ant-menu-submenu-popup .ant-menu-item:active,
+.ant-menu-submenu-popup .ant-menu-dark .ant-menu-item-selected {
+background-color: transparent !important;
+border-right: 4px solid @primary-6 !important;
+}
+
+.ant-menu-submenu-popup .ant-menu-item:hover,
+.sider .ant-menu-submenu-title:hover {
+  background-color: @primary-6 !important;
+}    
+
+.sider .ant-menu-submenu-open {
+  background-color: #18273e !important;
+}
+
+#root > div > div.sider.ant-layout-sider > div > ul > li.hidden-arrow > div > i {
+  display: none!important;
+}
+
+.sider .ant-menu-item-disabled > a,
+.sider .ant-menu-submenu-disabled > a {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.sider .ant-menu-item-disabled > .ant-menu-submenu-title,
+.sider .ant-menu-submenu-disabled > .ant-menu-submenu-title {
+  cursor: not-allowed;
+}

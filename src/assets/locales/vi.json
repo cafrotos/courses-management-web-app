@@ -1,0 +1,602 @@
+{
+  "currency": "{{value, currency}}",
+  "date_time": {
+    "short_time": "{{time, HH:mm DD-MM}}",
+    "time": "{{time, DD-MM-YYYY}}",
+    "full_time": "{{time, HH:mm DD-MM-YYYY}}",
+    "moment": "{{time, HH:mm:ss}}"
+  },
+  "login": {
+    "title": "Log in",
+    "greeting_username": "Vui lòng nhập tên tài khoản",
+    "another_account": "Sử dụng tài khoản khác?",
+    "greeting_password": "Vui lòng nhập nhập khẩu",
+    "invalid_username": "Vui lòng nhập tài khoản",
+    "invalid_current_password": "Vui lòng nhập mật khẩu hiện tại",
+    "invalid_password": "Vui lòng nhập mật khẩu",
+    "invalid_repassword": "Vui lòng xác nhận mật khẩu",
+    "repassword_not_match": "Mật khẩu xác nhận và mật khẩu mới phải trùng nhau",
+    "not_match": "Mật khẩu không chính xác",
+    "change_pass_not_match": "Mật khẩu không trùng khớp"
+  },
+  "button": {
+    "next": "Tiếp tục",
+    "save": "Lưu",
+    "cancel": "Huỷ",
+    "add": "Tạo",
+    "assign": "Giao",
+    "print": "In bảng kê",
+    "backhome": "Trang chủ"
+  },
+  "user_action": {
+    "edit_profile": "Sửa thông tin",
+    "notification": "Cài đặt thông báo",
+    "logout": "Đăng xuất"
+  },
+  "main_menu": {
+    "dashboard": "Bảng chung",
+    "delivery_orders": {
+      "title": "Vận đơn",
+      "table": {
+        "order": "Mã v/đ",
+        "sender": "Người gửi",
+        "receiver": "Người nhận",
+        "pack": "Gói v/c",
+        "fee": "Phí",
+        "status": "T/t",
+        "night_shift": "GT",
+        "nodata": "Không tìm thấy vận đơn"
+      },
+      "filter": {
+        "title": "Lọc & Tìm kiếm",
+        "order_code": "Mã vận đơn",
+        "state": "Trạng thái",
+        "all_state": "Tất cả trạng thái",
+        "order_info": "Thông tin vận đơn",
+        "delivery_contact": "Tên / SĐT người nhận",
+        "delivery_address": "Địa chỉ giao hàng",
+        "delivery_service": "Thông tin giao hàng",
+        "delivery_return": "Giao/Trả",
+        "pack": "Gói vận chuyển",
+        "re_time": "Số lần giao",
+        "night_delivery": "Giao tối",
+        "delivery": "Giao đi",
+        "return": "Trả lại",
+        "clear": "Xóa hết",
+        "time": {
+          "title_button": "Thời gian",
+          "filter_by": "Lọc theo",
+          "quick_filter": "Lọc nhanh",
+          "date": "Thời gian",
+          "clear_all": "Xóa tất cả",
+          "cancel": "Hủy",
+          "apply": "Tìm kiếm",
+          "option": {
+            "today": "Hôm nay",
+            "yesterday": "Hôm qua",
+            "this_month": "Tháng này",
+            "three_month": "Ba tháng",
+            "new": "Mới",
+            "old": "Cũ"
+          },
+          "placeholder": {
+            "start": "Bắt đầu",
+            "end": "Kết thúc"
+          }
+        }
+      }
+    },
+    "task": {
+      "title": "nhiệm vụ",
+      "filter": {
+        "rider": "Shipper/Đối tác",
+        "selecttime": "Chọn thời gian"
+      },
+      "table": {
+        "object": "Đối tượng",
+        "type": "loại n/v",
+        "tooltip_print": "In tất cả tem",
+        "responsibility": {
+          "title": "nhận n/v",
+          "internal": "Nội bộ",
+          "partner": "Đối tác"
+        },
+        "rider": "người nhận n/v",
+        "time": "thời gian",
+        "status": "trạng thái"
+      }
+    },
+    "pickup_request_details": {
+      "title": "Chi tiết YCL"
+    },
+    "pickup_requests": {
+      "title": "Yêu cầu lấy",
+      "table": {
+        "shop": "Shop",
+        "contact": "Liên hệ",
+        "address": "Địa chỉ",
+        "orders_quantity": "SLĐ",
+        "status": "Trạng thái",
+        "creat_at": "Ngày tạo",
+        "mobile": "Số điện thoại"
+      }
+    },
+    "task_details": {
+      "DELIVER": "N/V Giao",
+      "PICKUP": "N/V Lấy",
+      "PICKUP_AND_DELIVER": "N/V Trả",
+      "pickup_address": "Địa chỉ lấy hàng",
+      "contact": "Liên lạc",
+      "pickup_request": "Yêu cầu lấy",
+      "parcells_list": "Danh sách kiện",
+      "deliver_address": "Địa chỉ giao hàng",
+      "consignee": "Người nhận hàng",
+      "address": "Địa chỉ",
+      "description": "Mô tả",
+      "infomation": "Thông tin",
+      "delivery_order": "Vận đơn",
+      "actual_collect": "Thực thu",
+      "goods": "Hàng hóa",
+      "consignee_code": "Mã người nhận",
+      "confirm_code": "Mã xác nhận",
+      "rider_note": "Ghi chú của shipper",
+      "failure_reasons": "Lý do thất bại",
+      "pictures": "Ảnh",
+      "histories": "Lịch sử",
+      "modal": {
+        "success_title": "Chuyển trạng thái nhiệm vụ sang thành công",
+        "success_tut": "Vui lòng nhập COD thực thu:",
+        "failed_title": "Chuyển trạng thái nhiệm vụ sang thất bại",
+        "failed_tut": "Vui lòng nhập lý do thất bại:",
+        "choose_reason": "Chọn lý do",
+        "other_reason": "Lý do khác:",
+        "cancel_title": "Chuyển trạng thái nhiệm vụ sang",
+        "cancel_content_1": "Nhiệm vụ ở trạng thái",
+        "cancel_content_2": "sẽ không thể thay đổi thông tin được nữa. Bạn có chắc việc thay đổi này không?",
+        "button_ok": "Xác nhận",
+        "button_cancel": "Hủy"
+      }
+    },
+    "scanning_histories": "Lịch sử quét mã",
+    "operator": "Vận hành",
+    "custormer": "Shop",
+    "rider": "Shipper",
+    "system": "Hệ thống",
+    "list": "Danh sách",
+    "add_new": "Thêm mới",
+    "team": "Danh sách Team",
+    "choose_hub": "CHỌN HUB"
+  },
+  "hub_menu": {
+    "dashboard": "Dashboard",
+    "pickup_request": "Yêu cầu lấy",
+    "scan_barcode": "Quét mã",
+    "rider_shift": "Ca làm việc",
+    "shift_list": "Danh sách ca",
+    "partner_task": "Nhiệm vụ đối tác",
+    "hub_rider": "Hub's Shipper",
+    "permission": "Permissons",
+    "setting": "Cài đặt"
+  },
+  "hub": {
+    "scan_history": {
+      "state": {
+        "DELIVERED": "Đơn hàng đã giao"
+      }
+    },
+    "pickup_request": {
+      "title": "Yêu cầu lấy",
+      "night_shift": "GT",
+      "modal_confirm_title": "Bạn có chắc muốn hủy yêu cầu lấy này không?",
+      "type": {
+        "NEW": "Chờ lấy",
+        "ASSIGNED_TO": "Đã phân",
+        "CANCELLED": "Hủy",
+        "DONE": "Đã lấy",
+        "FAILED": "Thất bại",
+        "IN_PROCESS": "Đang lấy",
+        "HAND_OVER": "Bàn giao"
+      },
+      "modal": {
+        "tasks": {
+          "title": "Nhiệm vụ",
+          "table": {
+            "rider": "shipper",
+            "time": "thời gian",
+            "state": "trạng thái"
+          }
+        },
+        "orders": {
+          "title": "Danh sách vận đơn",
+          "table": {
+            "order": "vận đơn",
+            "delivery_address": "địa chỉ giao hàng",
+            "pickup_note": "Lưu ý lấy hàng"
+          }
+        }
+      },
+      "label": {
+        "change_state": "Chuyển trạng thái",
+        "action": "Hành động",
+        "add_pickup_task": "Tạo nhiệm vụ lấy",
+        "note": "Ghi chú",
+        "select_rider": "Chọn Shipper",
+        "select_team": "Chọn Team",
+        "message": "Tạo nhiệm vụ đi lấy thành công"
+      },
+      "button": {
+        "create": "Tạo nhiệm vụ",
+        "print_stickers": "In tem",
+        "print_vouchers": "In tất cả voucher",
+        "print_voucher": "In voucher"
+      }
+    },
+    "shift_list": {
+      "title": "Danh sách ca",
+      "MORNING": "Sáng",
+      "AFTERNOON": "Chiều",
+      "EVENING": "Tối",
+      "title_add": "Tạo ca đi giao",
+      "label": {
+        "rider_shift": "Rider Shift",
+        "status": "Trạng thái",
+        "task": "N/V",
+        "date": "Ngày",
+        "shift": "Chọn Ca",
+        "shift_modal": "Ca",
+        "team": "Team",
+        "rider": "Shipper",
+        "create_task": "Tạo nhiệm vụ",
+        "select_hub": "Chọn Hub",
+        "select_rider": "Chọn Shipper",
+        "order": "Vận đơn",
+        "delivery_address": "Địa chỉ giao",
+        "note": "Ghi chú",
+        "select_shift": "Chọn Ca"
+      }
+    },
+    "rider_shift": {
+      "title": "Ca làm việc",
+      "label": {
+        "task_assign": "Danh sách nhiệm vụ",
+        "scan": "Quét",
+        "task": "N/V",
+        "order": "Vận đơn",
+        "address": "Địa chỉ",
+        "status": "Trạng thái",
+        "tookan_id": "Tookan ID",
+        "to_assign": "mã",
+        "overtime_deliver": "GT"
+      }
+    },
+    "scan_barcode": {
+      "title": "Quét Mã",
+      "select": {
+        "actions": "Hành động",
+        "input": "Nhập",
+        "output": "Xuất",
+        "inventory": "Kiểm kê"
+      },
+      "button": {
+        "enter": "Nhập",
+        "clear_list": "Xóa danh sách"
+      },
+      "input": {
+        "placeholder": "Nhập mã vạch"
+      },
+      "table": {
+        "no": "#",
+        "barcode": "Mã vạch",
+        "action": "hành động",
+        "note": "lưu ý",
+        "time": "thời gian"
+      },
+      "REQUEST_TIME_OUT": "Lỗi mạng"
+    }
+  },
+  "invalid_barcode": "Barcode {{barcode}} không hợp lệ",
+  "time": "{{time, MM/DD/YYYY}}",
+  "full_time": "HH:mm DD/MM/YYYY",
+  "format_date": "DD/MM/YYYY",
+  "rider": "Shipper",
+  "shift": "ca",
+  "gender": "Giới tính",
+  "female": "Nữ",
+  "male": "Nam",
+  "rider_form_title": "Thêm Shipper",
+  "username": "Tên đăng nhập",
+  "password": "Mật khẩu",
+  "firstname": "Tên",
+  "lastname": "Họ",
+  "mobile": "Số điện thoại",
+  "total": "Tất cả",
+  "records": "kết quả",
+  "create_rider_success": "Tạo Shipper thành công",
+  "team_empty": "Vui lòng nhập tên team",
+  "create_team_success": "Tạo team thành công",
+  "update_team_success": "Cập nhật thông tin team thành công",
+  "delete_team_success": "Xóa team thành công",
+  "title_alert_success": "Thành công",
+  "button_add": "Thêm",
+  "validate_password": "Vui lòng nhập mật khẩu mới",
+  "validate_passwordNew": "Vui lòng nhập mật khẩu mới",
+  "validate_currentPassword": "Vui lòng nhập mật khẩu hiện tại",
+  "validate_confirmPassword": "Vui lòng nhập mật khẩu xác nhận",
+  "validate_username": "Vui lòng nhập tài khoản",
+  "validate_mobile": "Vui lòng nhập số điện thoại",
+  "validate_email": "Vui lòng nhập email",
+  "validate_fullName": "Vui lòng nhập họ tên",
+  "validate_firstName": "Vui lòng nhập tên",
+  "validate_lastName": "Vui lòng nhập họ",
+  "validate_error_password": "Mật khẩu có độ dài lớn hơn 6, chứa chữ hoa, chữ thường và số",
+  "validate_error_passwordNew": "Mật khẩu có độ dài lớn hơn 6, chứa chữ hoa, chữ thường và số",
+  "validate_error_invalid_password": "Mật khẩu không hợp lệ",
+  "validate_error_username": "Tài khoản không hợp lệ hoặc đã tồn tại",
+  "validate_error_mobile": "Số điện thoại không hợp lệ",
+  "validate_error_email": "Email không hợp lệ hoặc đã tồn tại",
+  "validate_error_fullName": "Họ tên không hợp lệ",
+  "validate_error_firstName": "Tên không hợp lệ",
+  "validate_error_lastName": "Họ không hợp lệ",
+  "validate_error_team": "Email không hợp lệ",
+  "validate_error": "{{name}} không hợp lệ",
+  "validate_team": "Vui lòng chọn team",
+  "title_team": "Chọn team",
+  "confirm_action": "Bạn có chắc muốn",
+  "chat": "nhắn tin",
+  "edit": "sửa",
+  "cancel": "hủy",
+  "block": "khóa",
+  "unblock": "mở khóa",
+  "delete": "Xóa",
+  "select": "chọn",
+  "task": "N/V",
+  "date": "ngày",
+  "from": "Từ",
+  "to": "đến",
+  "label": {
+    "Yes": "Có",
+    "Cancel": "Hủy",
+    "No": "Không"
+  },
+  "field_empty": "Vui lòng nhập",
+  "not_found": "Không tìm thấy",
+  "duplicate_barcode": "Barcode {{barcode}} đã được scan",
+  "listrider_title": "Danh sách Shipper",
+  "listoperator_title": "Danh sách nhân viên",
+  "listrider_total": "Tất cả",
+  "listrider_records": "bản ghi",
+  "profileRider_secure_title": "Thông tin bảo mật",
+  "profileRider_secure_detail": "Mật khẩu có tối thiểu 6 ký tự bao gồm chữ số, chữ thường, chữ hoa. Để bảo mật, nên đổi mật khẩu định kỳ 3 tháng.",
+  "profileRider_information_title": "Thông tin Shipper",
+  "profileRider_information_detail": "Thông tin giúp chúng tôi liên lạc với bạn dễ dàng hơn trong quá trình làm việc. Chúng tôi cam kết đảm bảo tính bí mật của những thông tin này.",
+  "profile_operator_information_title": "Thông tin vận hành",
+  "rider_form": {
+    "title": {
+      "change_password": "Thay đổi mật khẩu",
+      "change_email": "Thay đổi email",
+      "updateinfo": "Cập nhật thông tin cho",
+      "state": "Trạng thái"
+    },
+    "label": {
+      "username": "Tên đăng nhập",
+      "password": "Mật khẩu",
+      "fullname": "Họ tên",
+      "firstname": "Tên",
+      "lastname": "Họ",
+      "mobile": "Số điện thoại",
+      "newemail": "Email mới",
+      "current_password": "Mật khẩu hiện tại",
+      "state": "Trạng thái",
+      "tookan_id": "Tookan ID",
+      "newpassword": "Mật khẩu mới",
+      "confirmpassword": "Xác nhận mật khẩu",
+      "getnewpassword": "Lấy mật khẩu mới",
+      "team": "Nhóm",
+      "teamname": "Tên Team",
+      "description": "Mô tả",
+      "tagline_note": "Những cụm từ bắt mắt, dễ nhớ hoặc một câu mô tả thêm về Shipper."
+    },
+    "validate": {},
+    "button": {
+      "edit_information": "Sửa thông tin",
+      "cancel": "Hủy",
+      "change": "Thay đổi",
+      "update": "Cập nhật",
+      "add": "Thêm",
+      "addnewteam": "Tạo team",
+      "edit_team": "Cập nhật thông tin Team",
+      "close": "Đóng"
+    }
+  },
+  "rider_table": {
+    "title": {
+      "username": "Tên đăng nhập",
+      "mobile": "Số điện thoại",
+      "join_date": "ngày tham gia",
+      "tookanId": "TookanId",
+      "status": "Tình trạng"
+    }
+  },
+  "teams_table": {
+    "title": {
+      "username": "TÊN ĐĂNG NHẬP",
+      "mobile": "SỐ ĐIỆN THOẠI",
+      "team": "TEAM",
+      "join_date": "NGÀY THAM GIA",
+      "name": "TÊN TEAM",
+      "decs": "MÔ TẢ",
+      "rn": "Số lượng",
+      "pickuphub": "HUB NHẬN",
+      "deliveryhub": "HUB GIAO",
+      "nodata": "Không có dữ liệu",
+      "actions": {
+        "edit": {
+          "modal": {
+            "title": "Cập nhật thông tin Team",
+            "button_ok": "Cập nhật"
+          }
+        },
+        "delete": {
+          "modal_title": "xóa team",
+          "modal_content": "Bạn có chắc muốn xóa team"
+        }
+      }
+    }
+  },
+  "operators": {
+    "operator_form": {
+      "label": {
+        "fullname": "Họ tên",
+        "gender": "Giới tính"
+      }
+    }
+  },
+  "scanning_histories": {
+    "filter": {
+      "label": {
+        "barcode": "Barcode",
+        "action": "Hành động",
+        "hub": "Hub",
+        "choose_hub": "Chọn hub",
+        "choose_action": "Hành động"
+      },
+      "placeholder": {
+        "barcode": "barcode, mã vận đơn"
+      }
+    },
+    "table": {
+      "barcode": "barcode",
+      "order": "vận đơn",
+      "hub": "hub",
+      "scan_by": "người thực hiện",
+      "action": "hành động",
+      "scan_at": "thời gian quét"
+    }
+  },
+  "teams_add_success": "Thành công",
+  "teams_add_messenger": "Tạo team thành công",
+  "title_page": {
+    "scanning_histories": "Lịch sử quét mã",
+    "tasks": "Danh sách nhiệm vụ",
+    "orders": "Danh sách vận đơn",
+    "task_detail": "Chi tiết nhiệm vụ",
+    "pickup_requests": "Yêu cầu lấy",
+    "pickup_request_detail": "Chi tiết YCL",
+    "operator_profile": "Thông tin vận hành",
+    "operator_list": "Danh sách vận hành",
+    "operator_update_profile": "Cập nhật thông tin vận hành",
+    "rider_shift_detail": "Thông tin chi tiết ca",
+    "shift_list": "Danh sách ca",
+    "rider_list": "Danh sách Shipper",
+    "rider_add_new": "Thêm Shipper",
+    "rider_team": "Danh sách team",
+    "rider_profile": "Thông tin Shipper",
+    "rider_update_profile": "Cập nhật thông tin Shipper",
+    "404_page": "404",
+    "oops_page": "Oops"
+  },
+  "breadcrumb": {
+    "home": "Trang chủ",
+    "riders": "Shipper",
+    "delivery-orders": "Vận đơn",
+    "operators": "Vận hành",
+    "tasks": "Danh sách nhiệm vụ",
+    "detailstasks": "Chi tiết nhiệm vụ",
+    "pickup-requests": "YCL",
+    "scanning-histories": "Lịch sử quét mã",
+    "teams": "Danh sách Teams",
+    "list": "Danh sách",
+    "add-new": "Thêm mới",
+    "profile": "Thông tin",
+    "details": "Chi tiết",
+    "update": "Cập nhập",
+    "change-info": "Thay đổi thông tin"
+  },
+  "header": {
+    "search": "Tìm kiếm lớp học"
+  },
+  "404_pages": {
+    "description": "Xin lỗi, không tìm thấy trang!"
+  },
+  "oops_pages": {
+    "description": "Không thể kết nối đến server!",
+    "note": "Kết nối bị hỏng hoặc hệ thống ngừng hoạt động."
+  },
+  "shift_night": "(GT)",
+  "success": "Thành công",
+  "error": "Thất bại",
+  "task_state": {
+    "FAILED": "Thất bại",
+    "CANCELLED": "Hủy",
+    "REJECT": "Từ chối",
+    "INTERNAL_FAILED": "Thất bại (lý do nội bộ)",
+    "DONE": "Thành công",
+    "NEW": "Nhiệm vụ mới",
+    "IN_PROCESS": "Đang thực hiện"
+  },
+  "pickup_state": {
+    "NEW": "Chờ lấy",
+    "ASSIGNED_TO": "Đã phân",
+    "CANCELLED": "Hủy",
+    "DONE": "Đã lấy",
+    "FAILED": "Thất bại",
+    "IN_PROCESS": "Đang lấy",
+    "HAND_OVER": "Bàn giao"
+  },
+  "order_state": {
+    "WAITING_FOR_PICKUP": "chờ lấy",
+    "PICKING_UP": "đang lấy",
+    "PICKED_UP": "đã lấy",
+    "IN_TRANSFER": "trung chuyển",
+    "WAITING_FOR_DELIVER": "chờ giao",
+    "DELIVERING": "đang giao",
+    "DELIVERED": "đã giao",
+    "COMPLETED": "đối soát",
+    "LOST": "thất lạc",
+    "REJECT": "từ chối",
+    "CANCELLED": "đã hủy"
+  },
+  "operator_table": {
+    "title": {
+      "username": "Username",
+      "name": "Họ & tên",
+      "email": "Email",
+      "position": "Vị trí C/V",
+      "create": "Ngày gia nhập",
+      "state": "Trạng thái",
+      "username_or_email": "Username / Email",
+      "all": "Tất cả",
+      "ACTIVE": "Hoạt động",
+      "INACTIVE": "Khóa"
+    }
+  },
+  "rider_state": {
+    "ACTIVE": "Hoạt động",
+    "INACTIVE": "Khoá"
+  },
+  "scan_history": {
+    "state": {
+      "DELIVERED": "Đơn hàng đã giao"
+    }
+  },
+  "pickup_failure_reason": {
+    "nobody_picked": "Shop không nghe máy",
+    "cannot_contact": "Không liên hệ được Shop",
+    "wrong_number": "Sai số điện thoại",
+    "wrong_address": "Sai địa chỉ",
+    "pickup_later": "Shop hẹn lấy lúc khác",
+    "change_address": "Shop đổi địa chỉ",
+    "other_reason": "Lý do khác"
+  },
+  "deliver_failure_reason": {
+    "cannot_contact": "Không liên hệ được người nhận",
+    "wrong_number": "Sai số điện thoại",
+    "wrong_address": "Sai địa chỉ",
+    "did_not_order": "Người nhận báo không đặt hàng",
+    "deliver_later": "Người nhận hẹn giao thời điểm khác",
+    "change_address": "Người nhận đổi địa chỉ",
+    "wrong_order": "Người nhận báo sai sản phẩm",
+    "wrong_cod": "Người nhận báo sai COD",
+    "other_reason": "Lý do khác"
+  }
+}

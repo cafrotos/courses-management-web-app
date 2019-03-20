@@ -1,0 +1,93 @@
+@import "./../../styles/variables.less";
+
+.login{
+  .ant-form{
+    max-width: 400px;
+    position: relative;
+    width: 320px;
+    border: 1px solid #fff;
+    background: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+    border-radius: 4px;
+    margin: auto;
+    margin-top: 100px;
+    .login__title{
+      width: 100%;
+      color: @font-color-1;
+      margin-top: 30px;
+      .login__title__panda{
+        width: 47%;
+        height: 45px;
+        line-height: 45px;
+        font-size: @font-size-head-4;
+        font-weight: 600; 
+        border-right: 1px solid;
+        padding: auto;
+        text-transform: uppercase;
+        display: inline-block;
+      }
+      .login__title__login{
+        width: 50%;
+        height: 45px;
+        line-height: 45px;
+        padding-left: 15px;
+        font-size: @font-size-head-3;
+        display: inline-block;
+      }
+    }
+    .login__greeting{
+      font-size: @font-size-head-1;
+      line-height: 40px;
+      min-height: 40px;
+      margin-top: -20px;
+      margin-bottom: 2px;
+      .login__greeting__hi{
+        font-weight: 900;
+      }
+    }
+    .login__form__input{
+      margin-bottom: 5px;
+    }
+    .login__input__warning{
+      input{
+        border: 1px solid @error-color !important;
+        box-shadow:0 0 0 2px rgba(255, 56, 53, 0.2);
+        -webkit-box-shadow: 0 0 0 2px rgba(255, 56, 53, 0.2);
+        &:hover, &:focus, &:active{
+          border: 1px solid @error-color !important;
+          box-shadow:0 0 0 2px rgba(255, 56, 53, 0.2);
+          -webkit-box-shadow: 0 0 0 2px rgba(255, 56, 53, 0.2);
+        }
+      }
+    }
+    .ant-form-explain{
+      color: @error-color;
+      font-weight: 400;
+    }
+    .ant-btn-primary{
+      border: none;
+      width: 100%;
+      &:hover{
+        background: @primary-7;
+      }
+    }
+    .read-me {
+      font-size: 12px;
+    }
+    .ant-form-item{
+      margin-bottom: 20px;
+    }
+    .login-another-account{
+      margin-bottom: 20px;
+      cursor: pointer;
+      color: @font-color-link;
+      &:hover{
+      text-decoration: underline;
+    }
+    }
+  }
+}
+
+
