@@ -13,8 +13,8 @@ class CourseItem extends React.Component {
 		return (
 			<Layout>
 				<Card
-					style={{marginBottom:10,width: 310}}
-					cover={<img alt="example" src="https://courses.uet.vnu.edu.vn/pluginfile.php/10788/course/overviewfiles/anninhmang.png" />}
+					style={{marginBottom:10,width: 280}}
+					cover={<img alt="example" src="https://lh3.googleusercontent.com/6FnCDvzCtskO_ReqBUEU1HrBncCKNY4-iBQ4WGwZrxFRWbzwabgk_PMUsa2s1_Ola5cN3NeFph_V89rRUg=w960-h334-no" />}
 					actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
 				>
 					<Meta

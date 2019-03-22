@@ -23,10 +23,6 @@
     "shippo-node-utils": "^2.2.0",
     "url": "^0.11.0"
   },
-  "engines": {
-    "node": "10.15.1",
-    "npm": "6.9.0"
-  },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",

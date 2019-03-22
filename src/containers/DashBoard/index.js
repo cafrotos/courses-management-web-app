@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
 				<Layout className="dash-board" style={{minHeight: '100vh', padding: '10px'}}>
 					<Row>
 						<Col span={18}>
-							<Row gutter={10}>
+							<Row gutter={13}>
 								<Col span={8}><CourseItem/></Col>
 								<Col span={8}><CourseItem/></Col>
 								<Col span={8}><CourseItem/></Col>
