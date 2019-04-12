@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, Row, Col } from 'antd';
 import { withRouter } from 'react-router-dom'
 import CoursesLayout from '../CoursesLayout';
-import Courses from '../../components/Classes/index';
+import { Courses } from '../../components';
 import './dashboard.less';
 
 class Dashboard extends React.Component {

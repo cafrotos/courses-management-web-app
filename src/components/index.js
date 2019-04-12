@@ -1,5 +1,5 @@
 import Header from './Header/Header'
-import Courses from './Classes/index'
+import Courses from './Courses/index'
 
 export {
   Header,
