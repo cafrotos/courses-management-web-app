@@ -1,8 +1,15 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
+/.pnp
+.pnp.js
 
+# testing
+/coverage
+
+# production
+/build
 
 # misc
 .DS_Store
@@ -10,22 +17,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
-.idea
 
-.vscode
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
-
-#file
-src/components/**/*.css
-src/Page/**/*.css
-src/utils/**/*.css
-src/styles/**/*.css
-src/Constants/**/*.css
-
-build
-
-#nginx.conf
-nginx.conf
