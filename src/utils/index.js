@@ -1,5 +1,5 @@
-import FetchUtils from './FetchUtils.js';
-import Validate from './Validate.js';
+import FetchUtils from './FetchUtils';
+import Validate from './Validate';
 
 export {
   FetchUtils,
