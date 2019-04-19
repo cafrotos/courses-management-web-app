@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import CustomRoute from './components/privateRoute/customRoute';
-import PrivateRoute from './components/privateRoute/privateRoute';
-import EmailLogin from './containers/Login/EmailLogin';
-import PasswordLogin from './containers/Login/PasswordLogin';
-import Dashboard from './containers/Dashboard';
-import Loading from './components/Loading/Loading';
+import { CustomRoute, PrivateRoute } from 'components'
+import { Dashboard, EmailLogin, PasswordLogin } from 'containers'
 
 class App extends Component {
   render() {
