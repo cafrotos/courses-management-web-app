@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Menu, Button, Dropdown, Icon } from 'antd';
+import { Menu, Button, Dropdown } from 'antd';
 
 
 

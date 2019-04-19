@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Layout, Card, Icon, Avatar } from 'antd';
+import { Layout, Card, Avatar } from 'antd';
 import { LINK } from '../../constants'
 import './courses.less';
 

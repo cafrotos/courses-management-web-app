@@ -1,5 +1,5 @@
 import React from "react"
-import { Layout, Row, Col, Input, Tooltip, Icon } from "antd";
+import { Layout, Row, Col, Input, Icon } from "antd";
 import MenuUser from './MenuUser'
 import "./header.less"
 
