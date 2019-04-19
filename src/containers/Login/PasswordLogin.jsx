@@ -34,7 +34,7 @@ class PasswordLogin extends React.PureComponent {
   }
 
   onSubmit = async () => {
-    if(!this.state.password) {
+    if (!this.state.password) {
       this.setState({
         errMessage: "Chưa nhập mật khẩu!"
       })
@@ -47,18 +47,19 @@ class PasswordLogin extends React.PureComponent {
       password: this.state.password
     }
     let response = await FetchUtils.post('/login', body);
-    if(response && response.status !== 200) {
+    if (response && response.status !== 200) {
       this.setState({
         errMessage: response.message,
         loadding: false
       })
     }
     else {
+      console.log(response)
+      localStorage.setItem('accessToken', response.access_token)
       this.setState({
         loadding: false,
         isLogin: true
       })
-      localStorage.setItem('accessToken', response.access_token)
     }
   }
 

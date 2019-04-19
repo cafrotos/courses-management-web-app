@@ -1,45 +1,36 @@
 import React from "react"
-import { Layout, Row, Col, Icon } from "antd";
+import { Layout, Row, Col, Input, Tooltip, Icon } from "antd";
+import MenuUser from './MenuUser'
 import "./header.less"
 
 const { Header } = Layout;
-
-/*export default class extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-    }
-  }
-
-  render() {
-    let { toggle, collapsed } = this.props
-    return (
-      <Header className="header">
-        <Row>
-          <Col xs={11} sm={11} md={9} lg={7} xl={6} className="header__col__choosehuby" >
-            <span>
-              <Icon className="trigger" type={collapsed ? "menu-unfold" : "menu-fold"} onClick={toggle} />
-            </span>
-          </Col>
-          <Col xs={0} sm={0} md={2} lg={4} xl={8} />
-        </Row>
-      </Header>
-    );
-  }
-}*/
 
 export default (props) => {
   let { toggle, collapsed } = props
   return (
     <Header className="header">
-      <Row>
-        <Col xs={11} sm={11} md={9} lg={7} xl={6} className="header__col__choosehuby" >
-          <span>
-            <Icon className="trigger" type={collapsed ? "menu-unfold" : "menu-fold"} onClick={toggle} />
+      <Row align="bottom">
+        <Col span={6} className="header__title__left">
+          <Icon type={collapsed ? "menu-unfold" : "menu-fold"} onClick={toggle} />
+          <span className="title">
+            Quản lý môn học
           </span>
         </Col>
-        <Col xs={0} sm={0} md={2} lg={4} xl={8} />
+        {/* <Col span={3} style={{height: '', backgroundColor: 'red'}}></Col>
+        <Col span={3} style={{height: '', backgroundColor: 'green'}}></Col>
+        <Col span={3} style={{height: '', backgroundColor: 'blue'}}></Col> */}
+        <Col span={8} className="header__title__right">
+          <Input 
+            className="header__search"
+            placeholder="Tìm kiếm lớp"
+            prefix={<Icon type="search" />}
+          />
+          <Icon type="plus" className="create__class" />
+          <span>
+            <MenuUser />
+          </span>
+        </Col>
       </Row>
     </Header>
   );
-}
+} 

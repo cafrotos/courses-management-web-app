@@ -6,18 +6,24 @@
     z-index: 5;
     .logo {
       height: 63px;
+      position: relative;
+      img {
+        position: absolute;
+        height: 40px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
     .ant-menu-item {
       margin-top: 0 !important;
     }
     .courses__menu {
-      max-width: 200px !important;
-      position: fixed;
-      height: 100%;
       z-index: 5;
     }
   }
   .courses__content {
-    padding: 100px 0 0 15px !important;
+    padding: 100px 20px 0 20px !important;
+    height: 100vh;
   }
 }

@@ -44,7 +44,7 @@ class EmailLogin extends React.PureComponent {
     if (this.state.isLogin) {
       return <Redirect to={{ pathname: '/dashboard' }} />
     }
-    if(this.state.isVerifyEmail) {
+    if(this.state.isVerifyEmail || localStorage.getItem('email')) {
       return <Redirect to={{pathname: '/login'}} />
     }
     return (

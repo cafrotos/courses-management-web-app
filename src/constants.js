@@ -10,20 +10,20 @@ export const LIST_MENU = [
   },
   {
     id: ['1'],
-    name: "Trang chủ",
+    name: "Chưa hoàn thành",
     subMenu: [],
-    key: '/dashboards',
-    route: '/dashboards',
-    icon: 'home',
+    key: '/class',
+    route: '/class',
+    icon: 'solution',
     disabled: true
   },
   {
     id: ['2'],
-    name: "Trang chủ",
+    name: "Đã hoàn thành",
     subMenu: [],
-    key: '/dashboards',
-    route: '/dashboards',
-    icon: 'home',
+    key: '/class',
+    route: '/class',
+    icon: 'book',
     disabled: true
   }
 ]

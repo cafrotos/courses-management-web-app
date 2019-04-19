@@ -1,0 +1,23 @@
+@import "./../../assets/styles/variables.less";
+
+.courses {
+  .wrapper {
+    margin: 10px 20px 30px 20px;
+    box-shadow: 0 3px 3px -3px #777;
+    :hover {
+      box-shadow: 0 10px 6px -6px #777;
+      transition: 300ms;
+    }
+  }
+  .courses__card {
+    .avatar {
+      background-color: @color-purple-7;
+    }
+  }
+  .ant-card-meta-detail, .ant-card-body :hover {
+    box-shadow: none;
+  }
+  .ant-card-cover, .courses__card :hover {
+    box-shadow: none
+  }
+}
