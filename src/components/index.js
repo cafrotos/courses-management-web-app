@@ -1,8 +1,8 @@
 import Header from './Header/Header'
 import Courses from './Courses/index'
 import CoursesLayout from './CoursesLayout'
-import PrivateRoute from './privateRoute/privateRoute'
-import CustomRoute from './privateRoute/customRoute'
+import PrivateRoute from './Route/PrivateRoute'
+import CustomRoute from './Route/CustomRoute'
 
 export {
   Header,
