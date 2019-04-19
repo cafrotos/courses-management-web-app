@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import { withRouter } from 'react-router-dom'
-import logoImage from 'assets/img/logo.png'
+import {LogoImg} from 'assets'
 import history from '../../history';
 import { Header } from '../../components'
 import { LIST_MENU } from '../../constants';
@@ -12,7 +12,6 @@ const { Sider, Content } = Layout;
 class CoursesLayout extends React.Component {
   constructor(props) {
     super(props);
-    let innerWidth = this.getInnerWidth();
     this.state = {
       collapsed: true,
       openKeys: this.getActiveSubmenu(),
@@ -102,7 +101,7 @@ class CoursesLayout extends React.Component {
           theme='light'
         >
           <div className="logo">
-          <img src={logoImage} alt=""/>
+          <img src={LogoImg} alt=""/>
           </div>
           <Menu className="courses__menu" theme="light" mode="inline" defaultSelectedKeys={['1']}>
             {

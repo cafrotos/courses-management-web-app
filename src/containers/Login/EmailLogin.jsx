@@ -1,7 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
-import logoImage from 'assets/img/logo.png'
-import Validate from 'utils/Validate'
+import { LogoImg } from 'assets'
+import { Validate } from 'utils'
 import { Redirect, withRouter } from 'react-router-dom';
 import { Layout, Form, Button, Icon, Input, Row, } from 'antd';
 import './login.less'
@@ -26,7 +26,7 @@ class EmailLogin extends React.PureComponent {
   }
 
   onSubmit = () => {
-    if(Validate('email', this.state.email)) {
+    if (Validate('email', this.state.email)) {
       this.setState({
         isVerifyEmail: true
       })
@@ -44,8 +44,8 @@ class EmailLogin extends React.PureComponent {
     if (this.state.isLogin) {
       return <Redirect to={{ pathname: '/dashboard' }} />
     }
-    if(this.state.isVerifyEmail || localStorage.getItem('email')) {
-      return <Redirect to={{pathname: '/login'}} />
+    if (this.state.isVerifyEmail || localStorage.getItem('email')) {
+      return <Redirect to={{ pathname: '/login' }} />
     }
     return (
       <DocumentTitle title={"Đăng nhập"}>
@@ -53,7 +53,7 @@ class EmailLogin extends React.PureComponent {
           <Form>
             <div className="login__title">
               <Row>
-                <img src={logoImage} alt=""/>
+                <img src={LogoImg} alt="" />
               </Row>
               <h1>Đăng nhập</h1>
               <p>Đăng nhập vào hệ thống Quản lý môn học</p>
