@@ -3,7 +3,7 @@ import { Layout, Menu, Icon } from 'antd';
 import { withRouter } from 'react-router-dom'
 import {LogoImg} from 'assets'
 import history from '../../history';
-import { Header } from '../../components'
+// import { Header } from '../../components'
 import { LIST_MENU } from '../../constants';
 import './coursesLayout.less'
 
@@ -117,7 +117,7 @@ class CoursesLayout extends React.Component {
           </Menu>
         </Sider>
         <Layout>
-          <Header toggle={this.toggle} collapsed={this.state.collapsed} {...this.props} />
+          {/*<Header toggle={this.toggle} collapsed={this.state.collapsed} {...this.props} />*/}
           <Content className="courses__content">
             {this.props.children}
           </Content>

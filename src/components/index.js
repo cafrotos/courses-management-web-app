@@ -1,5 +1,5 @@
 import Header from './Header/Header'
-import Courses from './Courses/index'
+import Courses from './Courses'
 import CoursesLayout from './CoursesLayout'
 import PrivateRoute from './Route/PrivateRoute'
 import CustomRoute from './Route/CustomRoute'
