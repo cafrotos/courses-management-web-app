@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Row, Col } from 'antd';
 import { withRouter } from 'react-router-dom'
-import FetchUtils from 'utils/FetchUtils';
+import FetchUtils from '../../utils/FetchUtils';
 import CoursesLayout from '../../components/CoursesLayout';
 import { Courses } from '../../components';
 import './dashboard.less';
@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
     else this.setState({
       classes: response
     })
-  }
+  };
 
   render() {
     return (

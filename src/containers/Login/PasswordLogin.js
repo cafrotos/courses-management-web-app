@@ -1,7 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import logoImage from 'assets/img/logo.png'
-import FetchUtils from 'utils/FetchUtils';
+import FetchUtils from './../../utils/FetchUtils';
 import { Redirect, withRouter } from 'react-router-dom';
 import { Layout, Form, Button, Icon, Input, Row, Spin } from 'antd';
 import './login.less'

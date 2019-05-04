@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import { CustomRoute, PrivateRoute } from 'components'
-import { Dashboard, EmailLogin, PasswordLogin } from 'containers'
+import { CustomRoute, PrivateRoute } from './components'
+import { Dashboard, EmailLogin, PasswordLogin, CourseDetail } from './containers'
 
 class App extends Component {
   render() {
@@ -11,6 +11,7 @@ class App extends Component {
           <CustomRoute exact path="/" component={EmailLogin} />
           <CustomRoute exact path="/login" component={PasswordLogin} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <CustomRoute exact path="/courseDetail" component={CourseDetail} />
         </Switch>
       </Router>
     );
