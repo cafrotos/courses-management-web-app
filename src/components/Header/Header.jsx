@@ -2,6 +2,7 @@ import React from "react"
 import { Layout, Row, Col, Input, Icon } from "antd";
 import MenuUser from './MenuUser'
 import "./header.less"
+import { CreateCourses } from "..";
 
 const { Header } = Layout;
 
@@ -25,7 +26,7 @@ export default (props) => {
             placeholder="Tìm kiếm lớp"
             prefix={<Icon type="search" />}
           />
-          <Icon type="plus" className="create__class" />
+          <CreateCourses />
           <span>
             <MenuUser />
           </span>
