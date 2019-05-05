@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import { withRouter } from 'react-router-dom'
-import {LogoImg} from 'assets'
+import { LogoImg } from 'assets'
 import history from '../../history';
 import { Header } from '../../components'
 import { LIST_MENU } from '../../constants';
@@ -100,10 +100,10 @@ class CoursesLayout extends React.Component {
           activeLink={this.state.activeLink}
           theme='light'
         >
-          <div className="logo">
-          <img src={LogoImg} alt=""/>
-          </div>
           <Menu className="courses__menu" theme="light" mode="inline" defaultSelectedKeys={['1']}>
+            <div className="logo">
+              <img src={LogoImg} alt="" />
+            </div>
             {
               LIST_MENU.map((menu, index) => {
                 return (
@@ -118,7 +118,9 @@ class CoursesLayout extends React.Component {
         </Sider>
         <Layout>
           <Header toggle={this.toggle} collapsed={this.state.collapsed} {...this.props} />
+          <span className="children__layout">
             {this.props.children}
+          </span>
         </Layout>
       </Layout>
     );
