@@ -10,7 +10,7 @@ class App extends Component {
         <Switch>
           <CustomRoute exact path="/" component={EmailLogin} />
           <CustomRoute exact path="/login" component={PasswordLogin} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <CustomRoute exact path="/dashboard" component={Dashboard} />
           <CustomRoute exact path="/courseDetail" component={CourseDetail} />
         </Switch>
       </Router>

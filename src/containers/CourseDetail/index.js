@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Row, Col, Icon, Tabs, Input, Divider,Button} from 'antd';
+import {Row, Col, Tabs, Input, Divider,Button} from 'antd';
 import {withRouter} from 'react-router-dom';
+import { Segment, Icon } from 'semantic-ui-react'
 import './courseDetail.less';
 import CoursesLayout from '../../components/CoursesLayout';
-
 const TabPane = Tabs.TabPane;
 const {TextArea} = Input;
 const data = {
@@ -159,10 +159,24 @@ class CourseDetail extends Component {
                                         </div>
                                         <Divider/>
                                         <Row>
-                                            <Col offset={19} span={2}><Button>Hủy</Button></Col>
-                                            <Col span={3}><Button type="primary">Đăng bài</Button></Col>
+                                            <Col><Icon name='upload' /></Col>
+                                            <Col offset={18} span={2}><Button>Hủy</Button></Col>
+                                            <Col offset={1} span={3}><Button type="primary">Đăng bài</Button></Col>
                                         </Row>
-
+                                        <Segment inverted>
+                                            <Icon color='red' name='users' />
+                                            <Icon color='orange' name='users' />
+                                            <Icon color='yellow' name='users' />
+                                            <Icon color='olive' name='users' />
+                                            <Icon color='green' name='users' />
+                                            <Icon color='teal' name='users' />
+                                            <Icon color='blue' name='users' />
+                                            <Icon color='violet' name='users' />
+                                            <Icon color='purple' name='users' />
+                                            <Icon color='pink' name='users' />
+                                            <Icon color='brown' name='users' />
+                                            <Icon color='grey' name='users' />
+                                        </Segment>
                                     </div>
                                 </Col>
                             </Row>
