@@ -118,9 +118,7 @@ class CoursesLayout extends React.Component {
         </Sider>
         <Layout>
           <Header toggle={this.toggle} collapsed={this.state.collapsed} {...this.props} />
-          <Content className="courses__content">
             {this.props.children}
-          </Content>
         </Layout>
       </Layout>
     );
