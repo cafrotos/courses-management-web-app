@@ -1,11 +1,28 @@
-import React, { Component } from 'react';
-import { Row, Col, Tabs, Input, Divider, Button } from 'antd';
-import { withRouter } from 'react-router-dom';
-import { Segment, Icon } from 'semantic-ui-react'
+import React, {Component} from 'react';
+import {Row, Col, Tabs, Input, Divider, Button, Icon, Upload, message} from 'antd';
+import {withRouter} from 'react-router-dom';
 import './courseDetail.less';
 import CoursesLayout from '../../components/CoursesLayout';
+
 const TabPane = Tabs.TabPane;
-const { TextArea } = Input;
+const {TextArea} = Input;
+const props = {
+  name: 'file',
+  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+  headers: {
+    authorization: 'authorization-text',
+  },
+  onChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
+};
 const data = {
   className: "Toán rời rạc",
   detailClass: "Môn học cung cấp cho sinh viên kiến thức tổng quát về toán rời rạc",
@@ -101,19 +118,19 @@ const data = {
 class CourseDetail extends Component {
   constructor(props) {
     super(props);
-
+    
   }
-
+  
   render() {
     return (
       <CoursesLayout>
         <Row className="course-detail">
           <Tabs defaultActiveKey="1" size="large">
-            <TabPane tab={<span><Icon type="apple" />Luồng</span>} key="1">
+            <TabPane tab={<span><Icon type="apple"/>Luồng</span>} key="1">
               <Row className="row-header">
                 <div className="header-course-detail">
                   <div className="background-image">
-                    <div className="background-color" />
+                    <div className="background-color"/>
                     <div className="className">{data.className}</div>
                     <div className="classDetail">{data.detailClass}</div>
                   </div>
@@ -136,14 +153,14 @@ class CourseDetail extends Component {
                                     <a>{excrise.expriedTime} – {excrise.name}</a>
                                   </div>
                                 })
-
+                                
                               }
                             </div>
                           </div>
                         })
                       }
-
-
+                      
+                      
                       <div>
                         <a>Xem tất cả</a>
                       </div>
@@ -155,38 +172,27 @@ class CourseDetail extends Component {
                     <div className="title">Tạo bài viết</div>
                     <div className="text-area">
                       <TextArea placeholder="Chia sẻ với lớp học của bạn"
-                        autosize={{ minRows: 6, maxRows: 12 }} />
+                                autosize={{minRows: 6, maxRows: 12}}/>
                     </div>
-                    <Divider />
+                    <Divider/>
                     <Row>
-                      <Col><Icon name='upload' /></Col>
-                      <Col offset={18} span={2}><Button>Hủy</Button></Col>
-                      <Col offset={1} span={3}><Button type="primary">Đăng bài</Button></Col>
+                      <Col span={15}> <Upload {...props}>
+                        <Button icon="paper-clip" shape="circle"
+                                style={{cursor: "pointer", fontSize: "18px"}}/></Upload></Col>
+                      <Col span={9} style={{textAlign: 'right'}}><Button>Hủy</Button><Button style={{marginLeft: 8}}
+                                                                                              type="primary">Đăng
+                        bài</Button></Col>
                     </Row>
-                    <Segment inverted>
-                      <Icon color='red' name='users' />
-                      <Icon color='orange' name='users' />
-                      <Icon color='yellow' name='users' />
-                      <Icon color='olive' name='users' />
-                      <Icon color='green' name='users' />
-                      <Icon color='teal' name='users' />
-                      <Icon color='blue' name='users' />
-                      <Icon color='violet' name='users' />
-                      <Icon color='purple' name='users' />
-                      <Icon color='pink' name='users' />
-                      <Icon color='brown' name='users' />
-                      <Icon color='grey' name='users' />
-                    </Segment>
                   </div>
                 </Col>
               </Row>
             </TabPane>
-            <TabPane tab={<span><Icon type="android" />Bài tập trên lớp</span>} key="2">
+            <TabPane tab={<span><Icon type="android"/>Bài tập trên lớp</span>} key="2">
               Bài tập trên lớp
-                        </TabPane>
-            <TabPane tab={<span><Icon type="android" />Mọi người</span>} key="3">
+            </TabPane>
+            <TabPane tab={<span><Icon type="android"/>Mọi người</span>} key="3">
               Bài tập trên lớp
-                        </TabPane>
+            </TabPane>
           </Tabs>
         </Row>
       </CoursesLayout>
