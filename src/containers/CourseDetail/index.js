@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {Row, Col, Tabs, Input, Divider, Button, Icon, Upload, message} from 'antd';
+import {Row, Col, Tabs, Input, Divider, Button, Icon, Upload, message, Popover, Card, Avatar,} from 'antd';
 import {withRouter} from 'react-router-dom';
 import './courseDetail.less';
 import CoursesLayout from '../../components/CoursesLayout';
 
 const TabPane = Tabs.TabPane;
+const {Meta} = Card;
 const {TextArea} = Input;
 const props = {
   name: 'file',
@@ -23,6 +24,19 @@ const props = {
     }
   },
 };
+const content = (
+  <div>
+    <div>
+      <Button block className="button-more"><Icon type="edit" /><span style={{marginLeft:"5px"}}>Chỉnh sửa</span></Button>
+    </div>
+    <div>
+      <Button block className="button-more"><Icon type="delete" /><span style={{marginLeft:"5px"}}>Xóa</span></Button>
+    </div>
+    <div>
+      <Button block className="button-more"><Icon type="link" /><span style={{marginLeft:"5px"}}>Sao chép liên kết</span></Button>
+    </div>
+  </div>
+);
 const data = {
   className: "Toán rời rạc",
   detailClass: "Môn học cung cấp cho sinh viên kiến thức tổng quát về toán rời rạc",
@@ -180,10 +194,34 @@ class CourseDetail extends Component {
                         <Button icon="paper-clip" shape="circle"
                                 style={{cursor: "pointer", fontSize: "18px"}}/></Upload></Col>
                       <Col span={9} style={{textAlign: 'right'}}><Button>Hủy</Button><Button style={{marginLeft: 8}}
-                                                                                              type="primary">Đăng
+                                                                                             type="primary">Đăng
                         bài</Button></Col>
                     </Row>
                   </div>
+                  <Card className="post" style={{marginTop: 16}} bordered={true} loading={false}>
+                    <Row>
+                      <Col span={1}><Avatar style={{backgroundColor: '#87d068'}} icon="user" size="large"/></Col>
+                      <Col span={21} style={{paddingLeft: "12px"}}>
+                        <div className="username-post">Dương Nguyễn</div>
+                        <div className="time-post">26 thg 4</div>
+                      </Col>
+                      <Col span={2} style={{textAlign:"right"}}>
+                        
+                        <Popover placement="bottom" content={content} trigger="click">
+                          <Button style={{border:"none"}}><Icon style={{fontSize:"20px"}} type="more"/></Button>
+                        </Popover>
+                      
+                      </Col>
+                    </Row>
+                    <Row>
+                      <div className="status"> Các em nhớ làm bài nhé!</div>
+                      <a className="file-test">
+                        <div className="name-file">test.txt</div>
+                        <div className="description">Tải xuống</div>
+                      </a>
+                    
+                    </Row>
+                  </Card>
                 </Col>
               </Row>
             </TabPane>
