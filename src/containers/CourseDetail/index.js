@@ -26,14 +26,16 @@ const props = {
 };
 const content = (
   <div>
-    <div>
-      <Button block className="button-more"><Icon type="edit" /><span style={{marginLeft:"5px"}}>Chỉnh sửa</span></Button>
+    <div style={{}}>
+      <Button className="button-more"><Icon type="link"/><span
+        style={{marginLeft: "5px"}}>Sao chép liên kết</span></Button>
     </div>
     <div>
-      <Button block className="button-more"><Icon type="delete" /><span style={{marginLeft:"5px"}}>Xóa</span></Button>
+      <Button className="button-more"><Icon type="edit"/><span
+        style={{marginLeft: "5px"}}>Chỉnh sửa</span></Button>
     </div>
     <div>
-      <Button block className="button-more"><Icon type="link" /><span style={{marginLeft:"5px"}}>Sao chép liên kết</span></Button>
+      <Button className="button-more"><Icon type="delete"/><span style={{marginLeft: "5px"}}>Xóa</span></Button>
     </div>
   </div>
 );
@@ -199,16 +201,17 @@ class CourseDetail extends Component {
                     </Row>
                   </div>
                   <Card className="post" style={{marginTop: 16}} bordered={true} loading={false}>
-                    <Row>
+                    <Row className="row-infor">
                       <Col span={1}><Avatar style={{backgroundColor: '#87d068'}} icon="user" size="large"/></Col>
                       <Col span={21} style={{paddingLeft: "12px"}}>
                         <div className="username-post">Dương Nguyễn</div>
                         <div className="time-post">26 thg 4</div>
                       </Col>
-                      <Col span={2} style={{textAlign:"right"}}>
+                      <Col className="col-popover" span={2} style={{textAlign: "right"}}>
                         
                         <Popover placement="bottom" content={content} trigger="click">
-                          <Button style={{border:"none"}}><Icon style={{fontSize:"20px"}} type="more"/></Button>
+                          <Button shape="circle" style={{border: "none"}}>
+                            <i className="fas fa-ellipsis-v" style={{fontSize:"15px"}}></i></Button>
                         </Popover>
                       
                       </Col>
