@@ -5,6 +5,7 @@ import "./header.less"
 import { CreateCourses } from "..";
 
 const { Header } = Layout;
+const SECTION = localStorage.getItem('section');
 
 export default (props) => {
   let { toggle, collapsed } = props
@@ -26,7 +27,7 @@ export default (props) => {
             placeholder="Tìm kiếm lớp"
             prefix={<Icon type="search" />}
           />
-          <CreateCourses />
+          {SECTION === "LECTURER" ? (<CreateCourses />) : null}
           <span>
             <MenuUser />
           </span>
