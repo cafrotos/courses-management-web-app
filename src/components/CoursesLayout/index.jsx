@@ -3,7 +3,7 @@ import { Layout, Menu, Icon } from 'antd';
 import { withRouter } from 'react-router-dom'
 import { LogoImg } from 'assets'
 import history from '../../history';
-import { Header } from '../../components'
+import { Header } from '..'
 import { LIST_MENU } from '../../constants';
 import './coursesLayout.less'
 
