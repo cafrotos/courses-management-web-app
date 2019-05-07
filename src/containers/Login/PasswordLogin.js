@@ -107,10 +107,10 @@ class PasswordLogin extends React.PureComponent {
                     type='primary'
                     size='large'
                     htmlType='submit'
+                    loading={this.state.loadding}
                     onClick={this.onSubmit}
-                  >{this.state.loadding ?
-                    <Spin indicator={<Icon type="loading" style={{ fontSize: 18, color: 'white', margin: '0 29px 0 29px' }} spin />} /> :
-                    "Đăng nhập"}
+                  >
+                    Đăng nhập
                   </Button>
                 </Form.Item>
               </div>

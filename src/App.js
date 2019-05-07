@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import { CustomRoute, PrivateRoute } from './components'
-import { Dashboard, EmailLogin, PasswordLogin, CourseDetail } from './containers'
+import { CustomRoute, PrivateRoute } from 'components'
+import { Dashboard, EmailLogin, PasswordLogin, CourseDetail } from 'containers'
 
 class App extends Component {
   render() {
