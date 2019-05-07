@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { Menu, Button, Dropdown } from 'antd';
-
-
-
+import { FetchUtils } from 'utils'
 
 const UserMenu = (onClickLogout) => {
   return (
@@ -48,8 +46,10 @@ class DropdownMenuUser extends React.Component {
     })
   };
 
-  userLogout = () => {
-    this.props.handleLogout();
+  userLogout = async () => {
+    await FetchUtils.post('/users/logout');
+    localStorage.clear();
+    window.location.reload();
   };
 
   render() {
