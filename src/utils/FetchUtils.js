@@ -45,7 +45,7 @@ class FetchAPI {
       if (response.name === "timeout") {
         return response;
       }
-      if (response.status !== 200 && response.status !== 500) {
+      if (response.status === 401) {
         localStorage.clear();
       }
       let result = await response.json();

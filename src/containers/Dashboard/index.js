@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Row, Col } from 'antd';
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import FetchUtils from '../../utils/FetchUtils';
 import CoursesLayout from '../../components/CoursesLayout';
 import { Courses } from '../../components';
@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
 
   getClasses = async () => {
     let response = await FetchUtils.get('/classes');
-    if(response.status !== 200) {
+    if (response.status !== 200) {
       this.setState({
         classes: []
       })
@@ -38,9 +38,16 @@ class Dashboard extends React.Component {
             {
               this.state.classes.map((classInfo, index) => {
                 // if ()
-                  return (
-                    <Col span={8} key={index}><Courses key={index} {...classInfo} /></Col>
-                  )
+                return (
+                  <Col
+                    span={8}
+                    key={index}
+                  >
+                    <Link to={`/courses/${classInfo.id}`}>
+                      <Courses key={index} {...classInfo} />
+                    </Link>
+                  </Col>
+                )
               })
             }
           </Row>

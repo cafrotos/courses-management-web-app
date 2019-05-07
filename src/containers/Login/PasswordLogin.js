@@ -54,8 +54,8 @@ class PasswordLogin extends React.PureComponent {
       })
     }
     else {
-      console.log(response)
-      localStorage.setItem('accessToken', response.access_token)
+      localStorage.setItem('accessToken', response.access_token);
+      localStorage.setItem('section', response.section);
       this.setState({
         loadding: false,
         isLogin: true
