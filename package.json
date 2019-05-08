@@ -12,12 +12,13 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "react": "^16.8.6",
+    "react-addons-transition-group": "^15.6.2",
     "react-app-rewired": "^2.1.1",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
-    "semantic-ui-react": "^0.86.0",
+    "react-transition-group": "^1.2.1",
     "utils": "file:src/utils"
   },
   "scripts": {
