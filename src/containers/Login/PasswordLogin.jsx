@@ -1,9 +1,9 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import logoImage from 'assets/img/logo.png'
-import FetchUtils from 'utils/FetchUtils';
+import FetchUtils from './../../utils/FetchUtils';
 import { Redirect, withRouter } from 'react-router-dom';
-import { Layout, Form, Button, Icon, Input, Row, Spin } from 'antd';
+import { Layout, Form, Button, Icon, Input, Row } from 'antd';
 import './login.less'
 
 
@@ -54,8 +54,8 @@ class PasswordLogin extends React.PureComponent {
       })
     }
     else {
-      console.log(response)
-      localStorage.setItem('accessToken', response.access_token)
+      localStorage.setItem('accessToken', response.access_token);
+      localStorage.setItem('section', response.section);
       this.setState({
         loadding: false,
         isLogin: true
@@ -107,10 +107,10 @@ class PasswordLogin extends React.PureComponent {
                     type='primary'
                     size='large'
                     htmlType='submit'
+                    loading={this.state.loadding}
                     onClick={this.onSubmit}
-                  >{this.state.loadding ?
-                    <Spin indicator={<Icon type="loading" style={{ fontSize: 18, color: 'white', margin: '0 29px 0 29px' }} spin />} /> :
-                    "Đăng nhập"}
+                  >
+                    Đăng nhập
                   </Button>
                 </Form.Item>
               </div>

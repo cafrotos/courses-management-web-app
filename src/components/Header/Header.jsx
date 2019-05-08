@@ -1,9 +1,11 @@
 import React from "react"
-import { Layout, Row, Col, Input, Tooltip, Icon } from "antd";
+import { Layout, Row, Col, Input, Icon } from "antd";
 import MenuUser from './MenuUser'
 import "./header.less"
+import { CreateCourses } from "..";
 
 const { Header } = Layout;
+const SECTION = localStorage.getItem('section');
 
 export default (props) => {
   let { toggle, collapsed } = props
@@ -25,7 +27,7 @@ export default (props) => {
             placeholder="Tìm kiếm lớp"
             prefix={<Icon type="search" />}
           />
-          <Icon type="plus" className="create__class" />
+          {SECTION === "LECTURER" ? (<CreateCourses />) : null}
           <span>
             <MenuUser />
           </span>

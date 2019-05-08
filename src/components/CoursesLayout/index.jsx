@@ -1,13 +1,13 @@
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import { withRouter } from 'react-router-dom'
-import {LogoImg} from 'assets'
+import { LogoImg } from 'assets'
 import history from '../../history';
-import { Header } from '../../components'
+import { Header } from '..'
 import { LIST_MENU } from '../../constants';
 import './coursesLayout.less'
 
-const { Sider, Content } = Layout;
+const { Sider } = Layout;
 
 class CoursesLayout extends React.Component {
   constructor(props) {
@@ -100,10 +100,10 @@ class CoursesLayout extends React.Component {
           activeLink={this.state.activeLink}
           theme='light'
         >
-          <div className="logo">
-          <img src={LogoImg} alt=""/>
-          </div>
           <Menu className="courses__menu" theme="light" mode="inline" defaultSelectedKeys={['1']}>
+            <div className="logo">
+              <img src={LogoImg} alt="" />
+            </div>
             {
               LIST_MENU.map((menu, index) => {
                 return (
@@ -118,9 +118,9 @@ class CoursesLayout extends React.Component {
         </Sider>
         <Layout>
           <Header toggle={this.toggle} collapsed={this.state.collapsed} {...this.props} />
-          <Content className="courses__content">
+          <span className="children__layout">
             {this.props.children}
-          </Content>
+          </span>
         </Layout>
       </Layout>
     );

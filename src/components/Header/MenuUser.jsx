@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Menu, Button, Dropdown, Icon } from 'antd';
-
-
-
+import { Menu, Button, Dropdown } from 'antd';
+import { FetchUtils } from 'utils'
 
 const UserMenu = (onClickLogout) => {
   return (
@@ -11,7 +9,7 @@ const UserMenu = (onClickLogout) => {
       <Menu.Item className="menu__user__item" key="0">
         <Link to={`/change-info`}>
           <span className="menu__user__item__title">
-            <i className="fas fa-user" />
+            <i style={{marginRight: "7px"}} className="fas fa-user" />
             <span>Sửa thông tin</span>
           </span>
         </Link>
@@ -19,7 +17,7 @@ const UserMenu = (onClickLogout) => {
       <Menu.Item className="menu__user__item" key="3" onClick={onClickLogout}>
         <Link to="#" >
           <span className="menu__user__item__title">
-            <i className="fas fa-beer" />
+            <i style={{marginRight: "7px"}} className="fas fa-beer" />
             <span>Đăng xuất</span>
           </span>
         </Link>
@@ -48,8 +46,10 @@ class DropdownMenuUser extends React.Component {
     })
   };
 
-  userLogout = () => {
-    this.props.handleLogout();
+  userLogout = async () => {
+    await FetchUtils.post('/users/logout');
+    await localStorage.clear();
+    window.location.reload();
   };
 
   render() {
@@ -58,7 +58,7 @@ class DropdownMenuUser extends React.Component {
         overlay={UserMenu(this.userLogout)}
         trigger={['click']}
       >
-        <Button shape="circle" icon="user" size="large" onClick={this.handleClick} onBlur={this.handleBlur} />
+        <Button shape="circle" icon="user" style={{marginLeft: "20px"}} size="large" onClick={this.handleClick} onBlur={this.handleBlur} />
       </Dropdown>
     )
   }

@@ -1,9 +1,9 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { LogoImg } from 'assets'
-import { Validate } from 'utils'
+import { Validate } from './../../utils'
 import { Redirect, withRouter } from 'react-router-dom';
-import { Layout, Form, Button, Icon, Input, Row, } from 'antd';
+import { Layout, Form, Button, Icon, Input, Row } from 'antd';
 import './login.less'
 
 

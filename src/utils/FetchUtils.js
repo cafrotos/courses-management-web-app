@@ -1,4 +1,4 @@
-import config from '../config.json';
+import config from './../config';
 
 class FetchAPI {
   constructor() {
@@ -6,24 +6,23 @@ class FetchAPI {
     this.uri = config.rootapi;
   }
 
-  getHeader() {
+  getHeader(isUpload) {
     const accessToken = localStorage.getItem('accessToken');
-    const headers = {
-      'Content-Type': 'application/json'
-    }
+    let headers = {}
+    if(!isUpload) headers['Content-Type'] = 'application/json'
     if (accessToken) headers.Authorization = "Bearer " + accessToken;
     return headers;
   }
 
-  getFetchParams(path, method, query, body) {
+  getFetchParams(path, method, query, body, isUpload) {
     let fullPath = path[0] === '/' ? `${this.uri}${path}` : `${this.uri}/${path}`
     if (query) {
       fullPath = fullPath + query;
     }
     let config = {
       method: method,
-      headers: this.getHeader(),
-      body: JSON.stringify(body),
+      headers: this.getHeader(isUpload),
+      body: isUpload ? body : JSON.stringify(body),
     }
     return {
       endpoint: fullPath,
@@ -31,8 +30,9 @@ class FetchAPI {
     }
   }
 
-  async fetchApiWithTimeout(path, method, query, body) {
-    let fetchParams = this.getFetchParams(path, method, query, body);
+  async fetchApiWithTimeout(path, method, query, body, isUpload) {
+    let fetchParams = this.getFetchParams(path, method, query, body, isUpload);
+    console.log(fetchParams)
     try {
       let response = await Promise.race([
         fetch(fetchParams.endpoint, fetchParams.config),
@@ -46,7 +46,7 @@ class FetchAPI {
         return response;
       }
       if (response.status === 401) {
-        localStorage.removeItem('accessToken');
+        localStorage.clear();
       }
       let result = await response.json();
       result.status = response.status;
@@ -64,8 +64,8 @@ class FetchUtils {
   async get(path, query) {
     return await this.fetchAPI.fetchApiWithTimeout(path, 'GET', query);
   }
-  async post(path, body) {
-    return await this.fetchAPI.fetchApiWithTimeout(path, 'POST', null, body);
+  async post(path, body, isUpload) {
+    return await this.fetchAPI.fetchApiWithTimeout(path, 'POST', null, body, isUpload);
   }
   async patch(path, body) {
     return await this.fetchAPI.fetchApiWithTimeout(path, 'PATCH', null, body);
