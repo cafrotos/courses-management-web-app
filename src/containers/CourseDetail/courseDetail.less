@@ -86,6 +86,11 @@
     text-align: left;
 
     .content-post {
+      max-height: 500px;
+      overflow-y: hidden;
+      transition-property: all;
+      transition-duration: .2s;
+      transition-timing-function: cubic-bezier(1, 1, 0.5, 1);
       padding: 20px 20px;
       font-size: 15px;
       font-weight: 900;
@@ -98,10 +103,39 @@
 
       .title {
         margin-left: 9px;
+        margin-bottom: 10px;
       }
 
       .text-area {
         margin: 0 auto;
+      }
+    }
+
+    .hidden-content-post {
+      max-height: 80px;
+      padding: 20px 20px;
+      font-size: 15px;
+      font-weight: 900;
+      margin-left: 20px;
+      background-color: white;
+      border-radius: 6px;
+      border: 1px solid #dadce0;
+      margin-bottom: 20px;
+
+      .title {
+        align-items: center;
+        position: absolute;
+        top:10px;
+        color: rgba(0,0,0,0.549);
+        font-size: 14px;
+        font-weight: 100;
+      }
+      &:hover{
+        cursor: pointer;
+        .title{
+          color: #40a9ff;
+
+        }
       }
     }
 
@@ -157,15 +191,14 @@
     }
   }
 }
-.button-more{
+
+.button-more {
   border: none;
   width: 100%;
   text-align: left;
-  &:hover{
+
+  &:hover {
     background-color: #9393934d;
   }
-}
-.ant-popover-inner-content{
-  padding: 12px 0;
 }
 

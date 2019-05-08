@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { CoursesLayout } from 'components';
 import { FetchUtils } from 'utils'
 import './courseDetail.less';
+import {CSSTransitionGroup} from 'react-transition-group' // ES6
 
 const TabPane = Tabs.TabPane;
 const { TextArea } = Input;
@@ -155,8 +156,11 @@ class CourseDetail extends Component {
   }
 
   render() {
+    const {active} = this.state;
+    console.log("activeeeeeeeeeee=>>>>>>>>", active);
     return (
       <CoursesLayout>
+        
         <Row className="course-detail">
           <Tabs defaultActiveKey="1" size="large">
             <TabPane tab={<span><Icon type="apple" />Luồng</span>} key="1">
@@ -201,7 +205,8 @@ class CourseDetail extends Component {
                   </div>
                 </Col>
                 <Col span={18}>
-                  <div className="content-post">
+                  <div className={active ? "content-post" : "hidden-content-post"}>
+                    {active ? <>
                     <div className="title">Tạo bài viết</div>
                     <div className="text-area">
                       <TextArea
@@ -223,24 +228,34 @@ class CourseDetail extends Component {
                         </Upload>
                       </Col>
                       <Col span={9} style={{ textAlign: 'right' }}>
-                        <Button>Hủy</Button>
+                        <Button onClick={() => {
+                              this.setState({active: false});
+                            }}>Hủy</Button>
                         <Button style={{ marginLeft: 8 }} type="primary" onClick={this.onSubmit}>
                           Đăng bài
                         </Button>
                       </Col>
                     </Row>
+                    </> :
+                    <Row onClick={() => this.setState({active: true})}>
+                    <Col span={2}><Avatar style={{backgroundColor: '#87d068'}} icon="user" size="large"/></Col>
+                    <Col span={20}>
+                      <p className="title" >Chia sẻ đôi điều với lớp học...</p>
+                    </Col>
+                  </Row>
+                    }
                   </div>
                   <Card className="post" style={{ marginTop: 16 }} bordered={true} loading={false}>
                     <Row className="row-infor">
-                      <Col span={1}><Avatar style={{ backgroundColor: '#87d068' }} icon="user" size="large" /></Col>
-                      <Col span={21} style={{ paddingLeft: "12px" }}>
+                      <Col span={2}><Avatar style={{ backgroundColor: '#87d068' }} icon="user" size="large" /></Col>
+                      <Col span={20}>
                         <div className="username-post">Dương Nguyễn</div>
                         <div className="time-post">26 thg 4</div>
                       </Col>
-                      <Col className="col-popover" span={2} style={{ textAlign: "right" }}>
+                      <Col className="col-popover" span={2}>
 
                         <Popover placement="bottom" content={content} trigger="click">
-                          <Button shape="circle" style={{ border: "none" }}>
+                          <Button shape="circle" style={{ border: "none", float: 'right', textAlign: 'right' }}>
                             <i className="fas fa-ellipsis-v" style={{ fontSize: "15px" }}></i></Button>
                         </Popover>
 
