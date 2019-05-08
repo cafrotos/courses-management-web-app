@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { CoursesLayout } from 'components';
 import { FetchUtils } from 'utils'
 import './courseDetail.less';
-import {CSSTransitionGroup} from 'react-transition-group' // ES6
+import { CSSTransitionGroup } from 'react-transition-group' // ES6
 
 const TabPane = Tabs.TabPane;
 const { TextArea } = Input;
@@ -121,8 +121,21 @@ class CourseDetail extends Component {
     super(props);
     this.state = {
       contentPost: '',
-      formData: null
+      formData: new FormData(),
+      posts: []
     }
+  }
+
+  componentDidMount() {
+    this.fetchPosts()
+  }
+
+  fetchPosts = async () => {
+    let path = window.location.pathname;
+    let result = await FetchUtils.get(`/posts/${path}`);
+    this.setState({
+      posts: result
+    })
   }
 
   customRequest = async (info) => {
@@ -148,19 +161,22 @@ class CourseDetail extends Component {
     let body = this.state.formData;
     body.append("content", this.state.contentPost)
     let response = await FetchUtils.post(`/posts${window.location.pathname}`, body, true);
-    if(response.status === 200) {
+    if (response.status === 200) {
       notification.success({
         message: "Tạo bài chia sẻ thành công!"
       })
+      this.setState({
+        formData: new FormData()
+      })
+      this.fetchPosts();
     }
   }
 
   render() {
-    const {active} = this.state;
-    console.log("activeeeeeeeeeee=>>>>>>>>", active);
+    const { active, posts } = this.state;
     return (
       <CoursesLayout>
-        
+
         <Row className="course-detail">
           <Tabs defaultActiveKey="1" size="large">
             <TabPane tab={<span><Icon type="apple" />Luồng</span>} key="1">
@@ -206,70 +222,86 @@ class CourseDetail extends Component {
                 </Col>
                 <Col span={18}>
                   <div className={active ? "content-post" : "hidden-content-post"}>
-                    {active ? <>
-                    <div className="title">Tạo bài viết</div>
-                    <div className="text-area">
-                      <TextArea
-                        value={this.state.contentPost}
-                        placeholder="Chia sẻ với lớp học của bạn"
-                        autosize={{ minRows: 6, maxRows: 12 }}
-                        onChange={this.onChangeContent}
-                      />
-                    </div>
-                    <Divider />
-                    <Row>
-                      <Col span={15}>
-                        <Upload  customRequest={this.customRequest}>
-                          <Button
-                            icon="paper-clip"
-                            shape="circle"
-                            style={{ cursor: "pointer", fontSize: "18px" }}
+                    {active ?
+                      <>
+                        <div className="title">Tạo bài viết</div>
+                        <div className="text-area">
+                          <TextArea
+                            value={this.state.contentPost}
+                            placeholder="Chia sẻ với lớp học của bạn"
+                            autosize={{ minRows: 6, maxRows: 12 }}
+                            onChange={this.onChangeContent}
                           />
-                        </Upload>
-                      </Col>
-                      <Col span={9} style={{ textAlign: 'right' }}>
-                        <Button onClick={() => {
-                              this.setState({active: false});
+                        </div>
+                        <Divider />
+                        <Row>
+                          <Col span={15}>
+                            <Upload customRequest={this.customRequest}>
+                              <Button
+                                icon="paper-clip"
+                                shape="circle"
+                                style={{ cursor: "pointer", fontSize: "18px" }}
+                              />
+                            </Upload>
+                          </Col>
+                          <Col span={9} style={{ textAlign: 'right' }}>
+                            <Button onClick={() => {
+                              this.setState({ active: false });
                             }}>Hủy</Button>
-                        <Button style={{ marginLeft: 8 }} type="primary" onClick={this.onSubmit}>
-                          Đăng bài
+                            <Button style={{ marginLeft: 8 }} type="primary" onClick={this.onSubmit}>
+                              Đăng bài
                         </Button>
-                      </Col>
-                    </Row>
-                    </> :
-                    <Row onClick={() => this.setState({active: true})}>
-                    <Col span={2}><Avatar style={{backgroundColor: '#87d068'}} icon="user" size="large"/></Col>
-                    <Col span={20}>
-                      <p className="title" >Chia sẻ đôi điều với lớp học...</p>
-                    </Col>
-                  </Row>
+                          </Col>
+                        </Row>
+                      </> :
+                      <Row onClick={() => this.setState({ active: true })}>
+                        <Col span={2}><Avatar style={{ backgroundColor: '#87d068' }} icon="user" size="large" /></Col>
+                        <Col span={20}>
+                          <p className="title" >Chia sẻ đôi điều với lớp học...</p>
+                        </Col>
+                      </Row>
                     }
                   </div>
-                  <Card className="post" style={{ marginTop: 16 }} bordered={true} loading={false}>
-                    <Row className="row-infor">
-                      <Col span={2}><Avatar style={{ backgroundColor: '#87d068' }} icon="user" size="large" /></Col>
-                      <Col span={20}>
-                        <div className="username-post">Dương Nguyễn</div>
-                        <div className="time-post">26 thg 4</div>
-                      </Col>
-                      <Col className="col-popover" span={2}>
 
-                        <Popover placement="bottom" content={content} trigger="click">
-                          <Button shape="circle" style={{ border: "none", float: 'right', textAlign: 'right' }}>
-                            <i className="fas fa-ellipsis-v" style={{ fontSize: "15px" }}></i></Button>
-                        </Popover>
+                  {
+                    posts.map(post => {
+                      return (
+                        <Card className="post" style={{ marginTop: 16 }} bordered={true} loading={false}>
+                          <Row className="row-infor">
+                            <Col span={2}><Avatar style={{ backgroundColor: '#87d068' }} icon="user" size="large" /></Col>
+                            <Col span={20}>
+                              <div className="username-post">{post.userPosted.firstName + " " + post.userPosted.lastName}</div>
+                              <div className="time-post">{new Date(post.createdAt).toString()}</div>
+                            </Col>
+                            <Col className="col-popover" span={2}>
 
-                      </Col>
-                    </Row>
-                    <Row>
-                      <div className="status"> Các em nhớ làm bài nhé!</div>
-                      <a className="file-test">
-                        <div className="name-file">test.txt</div>
-                        <div className="description">Tải xuống</div>
-                      </a>
+                              <Popover placement="bottom" content={content} trigger="click">
+                                <Button shape="circle" style={{ border: "none", float: 'right', textAlign: 'right' }}>
+                                  <i className="fas fa-ellipsis-v" style={{ fontSize: "15px" }}></i></Button>
+                              </Popover>
 
-                    </Row>
-                  </Card>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <div className="status"> {post.content}</div>
+                            {post.attachments.map(attachment => {
+                              return (
+                                <Col className="file-test" span={6}>
+                                  <a>
+                                    <div className="name-file">{attachment.name}</div>
+                                    <div className="description">Tải xuống</div>
+                                  </a>
+                                </Col>
+                              )
+                            })}
+                          </Row>
+                        </Card>
+                      )
+                    })
+                  }
+
+
+
                 </Col>
               </Row>
             </TabPane>
