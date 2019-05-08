@@ -15,7 +15,7 @@ const UserMenu = (onClickLogout) => {
         </Link>
       </Menu.Item>
       <Menu.Item className="menu__user__item" key="3" onClick={onClickLogout}>
-        <Link to="#" >
+        <Link to="/" >
           <span className="menu__user__item__title">
             <i style={{marginRight: "7px"}} className="fas fa-beer" />
             <span>Đăng xuất</span>
