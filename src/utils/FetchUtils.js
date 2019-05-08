@@ -32,7 +32,6 @@ class FetchAPI {
 
   async fetchApiWithTimeout(path, method, query, body, isUpload) {
     let fetchParams = this.getFetchParams(path, method, query, body, isUpload);
-    console.log(fetchParams)
     try {
       let response = await Promise.race([
         fetch(fetchParams.endpoint, fetchParams.config),
@@ -48,9 +47,7 @@ class FetchAPI {
       if (response.status === 401) {
         localStorage.clear();
       }
-      let result = await response.json();
-      result.status = response.status;
-      return result;
+      return response
     } catch (error) {
       return { error }
     }
@@ -62,16 +59,31 @@ class FetchUtils {
     this.fetchAPI = new FetchAPI();
   }
   async get(path, query) {
-    return await this.fetchAPI.fetchApiWithTimeout(path, 'GET', query);
+    let response = await this.fetchAPI.fetchApiWithTimeout(path, 'GET', query);
+    let result = await response.json();
+    result.status = response.status;
+    return result;
   }
   async post(path, body, isUpload) {
-    return await this.fetchAPI.fetchApiWithTimeout(path, 'POST', null, body, isUpload);
+    let response =  await this.fetchAPI.fetchApiWithTimeout(path, 'POST', null, body, isUpload);
+    let result = await response.json();
+    result.status = response.status;
+    return result;
   }
   async patch(path, body) {
-    return await this.fetchAPI.fetchApiWithTimeout(path, 'PATCH', null, body);
+    let response =  await this.fetchAPI.fetchApiWithTimeout(path, 'PATCH', null, body);
+    let result = await response.json();
+    result.status = response.status;
+    return result;
   }
   async delete(path, body) {
-    return await this.fetchAPI.fetchApiWithTimeout(path, 'DELETE', null, body);
+    let response =  await this.fetchAPI.fetchApiWithTimeout(path, 'DELETE', null, body);
+    let result = await response.json();
+    result.status = response.status;
+    return result;
+  }
+  async downloadFile(path, query) {
+    return await this.fetchAPI.fetchApiWithTimeout(path, 'GET', query);
   }
 }
 

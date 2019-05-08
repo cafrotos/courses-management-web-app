@@ -286,11 +286,30 @@ class CourseDetail extends Component {
                             <div className="status"> {post.content}</div>
                             {post.attachments.map(attachment => {
                               return (
-                                <Col className="file-test" span={6}>
-                                  <a>
-                                    <div className="name-file">{attachment.name}</div>
-                                    <div className="description">Tải xuống</div>
-                                  </a>
+                                <Col
+                                  key={attachment.driveId}
+                                  className="file-test" span={6}
+                                  onClick={() => {
+                                    FetchUtils.downloadFile('/attachments//download/' + attachment.driveId)
+                                      .then((response) => response.blob())
+                                      .then((blob) => {
+
+                                        // 2. Create blob link to download
+                                        const url = window.URL.createObjectURL(new Blob([blob]));
+                                        const link = document.createElement('a');
+                                        link.href = url;
+                                        link.setAttribute('download', attachment.name);
+                                        // 3. Append to html page
+                                        document.body.appendChild(link);
+                                        // 4. Force download
+                                        link.click();
+                                        // 5. Clean up and remove the link
+                                        link.parentNode.removeChild(link);
+                                      })
+                                  }}
+                                >
+                                  <div className="name-file">{attachment.name}</div>
+                                  <div className="description">Tải xuống</div>
                                 </Col>
                               )
                             })}
