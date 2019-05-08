@@ -7,7 +7,7 @@ import { Header } from '..'
 import { LIST_MENU } from '../../constants';
 import './coursesLayout.less'
 
-const { Sider, Content } = Layout;
+const { Sider } = Layout;
 
 class CoursesLayout extends React.Component {
   constructor(props) {

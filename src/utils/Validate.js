@@ -1,7 +1,7 @@
 const REG_EMAIL = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
 const REG_PASSWORD = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
 
-function Validate(field, data) {
+export default function Validate(field, data) {
   let isValidate;
   if(!data || data.trim() === '') return false;
   switch (field) {
@@ -14,5 +14,3 @@ function Validate(field, data) {
   }
   return isValidate;
 }
-
-export default Validate;

@@ -3,12 +3,6 @@ import { Form, Input, Select, Modal, notification } from 'antd';
 import { FetchUtils } from 'utils';
 import './style.less'
 
-const LABEL_FORM = {
-  className: 'Tên lớp',
-  description: 'Mô tả',
-  room: 'Phòng'
-}
-
 class FormClass extends React.Component {
   constructor(props) {
     super(props);
@@ -21,14 +15,6 @@ class FormClass extends React.Component {
       confirmLoading: false,
       modules: []
     };
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.visible !== prevProps.visible) {
-      this.setState({
-        visible: !this.state.visible
-      })
-    }
   }
 
   componentDidMount() {
@@ -117,59 +103,10 @@ class FormClass extends React.Component {
   }
 
   render() {
-    const formItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 5 },
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 },
-      },
-    };
+    
 
     return (
-      <Modal
-        title="Tạo lớp mới"
-        visible={this.state.visible}
-        onOk={this.handleOk}
-        confirmLoading={this.state.confirmLoading}
-        onCancel={this.handleCancel}
-        okText={"Tạo"}
-        cancelText={"Hủy"}
-      >
-        <Form className="form__create__class">
-          {
-            Object.keys(LABEL_FORM).map((label, index) => {
-              return (
-                <Form.Item
-                  label={LABEL_FORM[label]}
-                  help={this.state[`${label}Err`]}
-                  key={index}
-                  {...formItemLayout}
-                >
-                  <Input onChange={this.onChangeField(label)} onBlur={this.validateField(label)} />
-                </Form.Item>
-              )
-            })
-          }
-          <Form.Item
-            label={'Bộ môn'}
-            {...formItemLayout}
-          >
-            <Select onChange={this.onChangeField('moduleId')} onBlur={this.validateField('moduleId')} >
-              {
-                this.state.modules.map((moduleInfo, index) => {
-                  return (
-                    <Select.Option value={moduleInfo.id} key={index}>{moduleInfo.moduleName}</Select.Option>
-                  )
-                })
-              }
-            </Select>
-            {this.state.moduleIdErr ? <span className='ant-form-explain'>{this.state.moduleIdErr}</span> : null}
-          </Form.Item>
-        </Form>
-      </Modal>
+      
     );
   }
 }

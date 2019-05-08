@@ -17,7 +17,6 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
-    "semantic-ui-react": "^0.86.0",
     "utils": "file:src/utils"
   },
   "scripts": {
@@ -34,9 +33,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "@babel/preset-env": "^7.4.4",
-    "babel-cli": "^6.26.0"
-  }
+  ]
 }
