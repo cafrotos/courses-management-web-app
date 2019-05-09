@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { CoursesLayout } from 'components';
 import { FetchUtils } from 'utils'
 import './courseDetail.less';
+import Exercise from "../Exercise";
+import ClassMate from '../ClassMate'
 
 const TabPane = Tabs.TabPane;
 const { TextArea } = Input;
@@ -121,7 +123,8 @@ class CourseDetail extends Component {
     this.state = {
       contentPost: '',
       formData: new FormData(),
-      posts: []
+      posts: [],
+      loading:false
     }
   }
 
@@ -135,7 +138,7 @@ class CourseDetail extends Component {
     this.setState({
       posts: result 
     })
-  }
+  };
 
   customRequest = async (info) => {
     if (!this.state.formData) {
@@ -144,40 +147,43 @@ class CourseDetail extends Component {
       })
     }
     let data = this.state.formData;
-    data.append('files', info.file)
+    data.append('files', info.file);
     this.setState({
       formData: data
     })
-  }
+  };
 
   onChangeContent = (event) => {
     this.setState({
       contentPost: event.target.value
     })
-  }
+  };
 
   onSubmit = async () => {
+    this.setState({loading:true})
     let body = this.state.formData;
     body.append("content", this.state.contentPost)
     let response = await FetchUtils.post(`/posts${window.location.pathname}`, body, true);
     if (response.status === 200) {
       notification.success({
         message: "Tạo bài chia sẻ thành công!"
-      })
+      });
       this.setState({
+        loading:false,
+        contentPost:'',
         formData: new FormData()
-      })
+      });
       this.fetchPosts();
     }
-  }
+  };
 
   render() {
-    const { active, posts } = this.state;
+    const { active, posts,loading } = this.state;
     return (
       <CoursesLayout>
 
         <Row className="course-detail">
-          <Tabs defaultActiveKey="1" size="large">
+          <Tabs defaultActiveKey="2" size="large">
             <TabPane tab={<span><Icon type="apple" />Luồng</span>} key="1">
               <Row className="row-header">
                 <div className="header-course-detail">
@@ -226,6 +232,7 @@ class CourseDetail extends Component {
                         <div className="title">Tạo bài viết</div>
                         <div className="text-area">
                           <TextArea
+                            autoFocus
                             value={this.state.contentPost}
                             placeholder="Chia sẻ với lớp học của bạn"
                             autosize={{ minRows: 6, maxRows: 12 }}
@@ -247,7 +254,7 @@ class CourseDetail extends Component {
                             <Button onClick={() => {
                               this.setState({ active: false });
                             }}>Hủy</Button>
-                            <Button style={{ marginLeft: 8 }} type="primary" onClick={this.onSubmit}>
+                            <Button style={{ marginLeft: 8 }} type="primary" onClick={this.onSubmit} loading={loading}>
                               Đăng bài
                         </Button>
                           </Col>
@@ -321,10 +328,10 @@ class CourseDetail extends Component {
               </Row>
             </TabPane>
             <TabPane tab={<span><Icon type="android" />Bài tập trên lớp</span>} key="2">
-              Bài tập trên lớp
+              <Exercise/>
             </TabPane>
             <TabPane tab={<span><Icon type="android" />Mọi người</span>} key="3">
-              Bài tập trên lớp
+              <ClassMate />
             </TabPane>
           </Tabs>
         </Row>

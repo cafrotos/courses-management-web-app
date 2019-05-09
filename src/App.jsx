@@ -12,7 +12,7 @@ class App extends Component {
           <CustomRoute exact path="/login" component={PasswordLogin} />
           <CustomRoute exact path="/register" component={Register} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/courses/:id" component={CourseDetail} />
+          <CustomRoute exact path="/courses/:id" component={CourseDetail} />
         </Switch>
       </Router>
     );
