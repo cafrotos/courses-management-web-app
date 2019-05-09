@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { LogoImg } from 'assets'
 import history from '../../history';
 import { Header } from '..'
@@ -108,8 +108,10 @@ class CoursesLayout extends React.Component {
               LIST_MENU.map((menu, index) => {
                 return (
                   <Menu.Item key={index}>
-                    <Icon type={menu.icon} />
-                    <span>{menu.name}</span>
+                    <Link to={'/dashboard'}>
+                      <Icon type={menu.icon} />
+                      <span>{menu.name}</span>
+                    </Link>
                   </Menu.Item>
                 )
               })

@@ -1,4 +1,4 @@
 {
-  "rootapi": "https://coursesmanagementapi.herokuapp.com",
+  "rootapi": "http://localhost:3001",
   "timeout": 30000
 }

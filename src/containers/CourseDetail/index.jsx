@@ -124,12 +124,23 @@ class CourseDetail extends Component {
       contentPost: '',
       formData: new FormData(),
       posts: [],
-      loading:false
+      loading:false,
+      classInfo: {}
     }
   }
 
   componentDidMount() {
-    this.fetchPosts()
+    this.fetchPosts();
+    this.fetchClassInfo();
+  }
+
+  fetchClassInfo = async () => {
+    let path = window.location.pathname;
+    let id = path.split('/');
+    let response = await FetchUtils.get('/classes/' + id[2]);
+    this.setState({
+      classInfo: response
+    })
   }
 
   fetchPosts = async () => {
@@ -175,10 +186,18 @@ class CourseDetail extends Component {
       });
       this.fetchPosts();
     }
+    else {
+      notification.error({
+        message: "Thất bại!"
+      });
+      this.setState({
+        loading: false
+      })
+    }
   };
 
   render() {
-    const { active, posts,loading } = this.state;
+    const { active, posts,loading, classInfo } = this.state;
     return (
       <CoursesLayout>
 
@@ -189,8 +208,8 @@ class CourseDetail extends Component {
                 <div className="header-course-detail">
                   <div className="background-image">
                     <div className="background-color" />
-                    <div className="className">{data.className}</div>
-                    <div className="classDetail">{data.detailClass}</div>
+                    <div className="className">{classInfo.className}</div>
+                    <div className="classDetail">{classInfo.description}</div>
                   </div>
                 </div>
               </Row>
