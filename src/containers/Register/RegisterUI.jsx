@@ -1,11 +1,9 @@
 import React from 'react';
-import DocumentTitle from 'react-document-title';
 import { LogoImg } from 'assets'
-import { Validate } from './../../utils'
-import { Redirect, withRouter } from 'react-router-dom';
 import { Layout, Form, Button, Icon, Input, Row, Col } from 'antd';
 
 const RegisterUI = (props) => {
+  let { onChangeField, getField, getFieldErrorMessage, onBlurValidate, onSubmit } = props
   return (
     <Layout className="login">
       <Form>
@@ -17,82 +15,96 @@ const RegisterUI = (props) => {
           <p>Hãy đăng ký tài khoản của bạn để sử dụng dich vụ của chúng tôi!</p>
         </div>
         <div className="login__form__alige">
-          <Form.Item help={""}>
-            <Row gutter={16}>
-              <Col span={12}>
+
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item help={getFieldErrorMessage('firstName')}>
                 <Input
                   name='Họ'
                   placeholder='Họ..'
-                  autoFocus
                   prefix={<Icon type="user" />}
                   className={`login__form__input `}
                   size="large"
+                  onChange={onChangeField('firstName')}
+                  onBlur={onBlurValidate('firstName')}
                 />
-              </Col>
-              <Col span={12}>
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item help={getFieldErrorMessage('lastName')}>
                 <Input
                   name='Tên'
                   placeholder='Tên..'
-                  autoFocus
                   prefix={<Icon type="user" />}
                   className={`login__form__input `}
                   size="large"
+                  onChange={onChangeField('lastName')}
+                  onBlur={onBlurValidate('lastName')}
                 />
-              </Col>
-            </Row>
-          </Form.Item>
-          <Form.Item help={""}>
+
+              </Form.Item>
+            </Col>
+          </Row>
+          <Form.Item help={getFieldErrorMessage("email")}>
             <Input
               name='email'
               placeholder='Email..'
-              autoFocus
               prefix={<i class="fas fa-at"></i>}
               className={`login__form__input `}
               size="large"
+              onChange={onChangeField('email')}
+              onBlur={onBlurValidate('email')}
             />
           </Form.Item>
-          <Form.Item help={""}>
+          <Form.Item help={getFieldErrorMessage('address')}>
             <Input
               name='address'
               placeholder='Địa chỉ..'
-              autoFocus
               prefix={<i class="fas fa-map-marker-alt"></i>}
               className={`login__form__input `}
               size="large"
+              onChange={onChangeField('address')}
+              onBlur={onBlurValidate('address')}
             />
           </Form.Item>
-          <Form.Item help={""}>
-            <Row gutter={16}>
-              <Col span={12}>
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item help={getFieldErrorMessage('password')}>
                 <Input
                   name='password'
+                  type="password"
                   placeholder='Mật khẩu..'
-                  autoFocus
                   prefix={<Icon type="lock" theme="filled" />}
                   className={`login__form__input `}
                   size="large"
+                  onChange={onChangeField('password')}
+                  onBlur={onBlurValidate('password')}
                 />
-              </Col>
-              <Col span={12}>
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item help={getFieldErrorMessage('repassword')}>
                 <Input
                   name='repassword'
+                  type="password"
                   placeholder='Xác nhận mật khẩu..'
-                  autoFocus
                   prefix={<Icon type="lock" theme="filled" />}
                   className={`login__form__input `}
                   size="large"
+                  onChange={onChangeField('repoassword')}
+                  onBlur={onBlurValidate('repassword')}
                 />
-              </Col>
-            </Row>
-          </Form.Item>
+              </Form.Item>
+            </Col>
+          </Row>
           <Form.Item>
             <Button
               type='primary'
               size='large'
               htmlType='submit'
-              onClick={() => this.onSubmit()}
+              onClick={() => onSubmit()}
             >
-              Tiếp theo
+              Đăng ký
             </Button>
           </Form.Item>
         </div>

@@ -3,16 +3,79 @@ import DocumentTitle from 'react-document-title';
 import { Redirect, withRouter } from 'react-router-dom';
 import RegisterUI from './RegisterUI';
 import './style.less'
-
+import { Validate, FetchUtils } from 'utils';
+import { notification } from 'antd'
 
 class Register extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      email: null,
-      errMessage: '',
-      isLogin: localStorage.getItem('accessToken') ? true : false,
-      isVerifyEmail: false
+    this.state = {}
+  }
+
+  onChangeField = (field) => {
+    return (event) => {
+      if (field === 'password' || field === 'repassword') {
+        this.setState({
+          [field]: event.target.value.trim(),
+          [`${field}Err`]: ''
+        })
+        return;
+      }
+      this.setState({
+        [field]: event.target.value,
+        [`${field}Err`]: ''
+      })
+    }
+  }
+
+  getField = (field) => {
+    return this.state[field];
+  }
+
+  getFieldErrorMessage = (field) => {
+    return this.state[`${field}Err`];
+  }
+
+  onBlurValidate = (field) => {
+    return () => {
+      if (!this.state[field]) {
+        this.setState({
+          [`${field}Err`]: "Chưa nhập " + field
+        })
+      }
+      else {
+        if (field === 'email' || field === 'password') {
+          if (!Validate(field, this.state[field])) {
+            this.setState({
+              [`${field}Err`]: field + " không đúng định dạng"
+            })
+          }
+        }
+        if (field === 'repassword' && this.state[field] !== this.state.password) {
+          this.setState({
+            [`${field}Err`]: "Mật khẩu không khớp"
+          })
+        }
+      }
+    }
+  }
+
+  onSubmit = async () => {
+    let { firstName, lastName, email, address, password } = this.state
+    let body = {
+      firstName, lastName, email, address, password, section: "STUDENT"
+    }
+    let response = await FetchUtils.post('/register', body);
+    if (response.status === 200) {
+      notification.success({
+        message: "Tạo tài khoản thành công!"
+      })
+      localStorage.setItem('email', email)
+    }
+    else {
+      notification.error({
+        message: "Tạo tài khoản thất bại!"
+      })
     }
   }
 
@@ -25,7 +88,13 @@ class Register extends React.PureComponent {
     // }
     return (
       <DocumentTitle title={"Đăng ký"}>
-        <RegisterUI></RegisterUI>
+        <RegisterUI
+          onBlurValidate={this.onBlurValidate}
+          onChangeField={this.onChangeField}
+          getField={this.getField}
+          getFieldErrorMessage={this.getFieldErrorMessage}
+          onSubmit={this.onSubmit}
+        />
       </DocumentTitle>
     )
   }
