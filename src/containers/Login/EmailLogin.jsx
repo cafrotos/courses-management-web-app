@@ -2,7 +2,7 @@ import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { LogoImg } from 'assets'
 import { Validate } from './../../utils'
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect, withRouter, Link } from 'react-router-dom';
 import { Layout, Form, Button, Icon, Input, Row } from 'antd';
 import './login.less'
 
@@ -14,7 +14,8 @@ class EmailLogin extends React.PureComponent {
       email: null,
       errMessage: '',
       isLogin: localStorage.getItem('accessToken') ? true : false,
-      isVerifyEmail: false
+      isVerifyEmail: false,
+      register: false
     }
   }
 
@@ -40,12 +41,22 @@ class EmailLogin extends React.PureComponent {
     }
   }
 
+  redirectRegister = () => {
+    console.log("abcabc")
+    this.setState({
+      register: true
+    })
+  }
+
   render() {
     if (this.state.isLogin) {
       return <Redirect to={{ pathname: '/dashboard' }} />
     }
     if (this.state.isVerifyEmail || localStorage.getItem('email')) {
       return <Redirect to={{ pathname: '/login' }} />
+    }
+    if (this.state.register) {
+      return <Redirect to={{ pathname: '/register' }} />
     }
     return (
       <DocumentTitle title={"Đăng nhập"}>
@@ -78,8 +89,8 @@ class EmailLogin extends React.PureComponent {
                 <p>Không phải máy tính của bạn? Hãy sử dụng chế độ Khách để đăng nhập một cách riêng tư. <a href="/help"><b>Tìm hiểu thêm.</b></a></p>
               </div>
               <div className="footer__form__login">
-                <b className="create__account redirect__component">Tạo tài khoản.</b>
                 <Form.Item>
+                  <b onClick={this.redirectRegister} className="create__account redirect__component">Tạo tài khoản.</b>
                   <Button
                     type='primary'
                     size='large'

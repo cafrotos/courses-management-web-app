@@ -51,7 +51,7 @@ class Register extends React.PureComponent {
             })
           }
         }
-        if (field === 'repassword' && this.state[field] !== this.state.password) {
+        if (field === 'repassword' && this.state.repassword !== this.state.password) {
           this.setState({
             [`${field}Err`]: "Mật khẩu không khớp"
           })
@@ -71,6 +71,9 @@ class Register extends React.PureComponent {
         message: "Tạo tài khoản thành công!"
       })
       localStorage.setItem('email', email)
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     }
     else {
       notification.error({
@@ -80,12 +83,12 @@ class Register extends React.PureComponent {
   }
 
   render() {
-    // if (this.state.isLogin) {
-    //   return <Redirect to={{ pathname: '/dashboard' }} />
-    // }
-    // if (this.state.isVerifyEmail || localStorage.getItem('email')) {
-    //   return <Redirect to={{ pathname: '/login' }} />
-    // }
+    if (this.state.isLogin) {
+      return <Redirect to={{ pathname: '/dashboard' }} />
+    }
+    if (this.state.isVerifyEmail || localStorage.getItem('email')) {
+      return <Redirect to={{ pathname: '/login' }} />
+    }
     return (
       <DocumentTitle title={"Đăng ký"}>
         <RegisterUI

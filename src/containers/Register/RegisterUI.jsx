@@ -49,7 +49,7 @@ const RegisterUI = (props) => {
             <Input
               name='email'
               placeholder='Email..'
-              prefix={<i class="fas fa-at"></i>}
+              prefix={<i className="fas fa-at"></i>}
               className={`login__form__input `}
               size="large"
               onChange={onChangeField('email')}
@@ -60,7 +60,7 @@ const RegisterUI = (props) => {
             <Input
               name='address'
               placeholder='Địa chỉ..'
-              prefix={<i class="fas fa-map-marker-alt"></i>}
+              prefix={<i className="fas fa-map-marker-alt"></i>}
               className={`login__form__input `}
               size="large"
               onChange={onChangeField('address')}
@@ -91,7 +91,7 @@ const RegisterUI = (props) => {
                   prefix={<Icon type="lock" theme="filled" />}
                   className={`login__form__input `}
                   size="large"
-                  onChange={onChangeField('repoassword')}
+                  onChange={onChangeField('repassword')}
                   onBlur={onBlurValidate('repassword')}
                 />
               </Form.Item>
