@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { CoursesLayout } from 'components';
 import { FetchUtils } from 'utils'
 import './courseDetail.less';
-import { CSSTransitionGroup } from 'react-transition-group' // ES6
 
 const TabPane = Tabs.TabPane;
 const { TextArea } = Input;
@@ -134,7 +133,7 @@ class CourseDetail extends Component {
     let path = window.location.pathname;
     let result = await FetchUtils.get(`/posts/${path}`);
     this.setState({
-      posts: result
+      posts: result 
     })
   }
 
@@ -195,13 +194,13 @@ class CourseDetail extends Component {
                     <div className="title">Sắp đến hạn</div>
                     <div>
                       {
-                        data.expiredExercise.map((element, index) => {
+                        data.expiredExercise&&data.expiredExercise.map((element, index) => {
                           return <div key={index} className="expired-block">
                             <span
                               className="description-day">{element.timeDescription}</span>
                             <div>
                               {
-                                element.exercise.map((excrise, index) => {
+                                element.exercise&&element.exercise.map((excrise, index) => {
                                   return <div>
                                     <a>{excrise.expriedTime} – {excrise.name}</a>
                                   </div>
@@ -264,7 +263,7 @@ class CourseDetail extends Component {
                   </div>
 
                   {
-                    posts.map(post => {
+                    posts&&posts.map(post => {
                       return (
                         <Card className="post" style={{ marginTop: 16 }} bordered={true} loading={false}>
                           <Row className="row-infor">
@@ -284,7 +283,7 @@ class CourseDetail extends Component {
                           </Row>
                           <Row>
                             <div className="status"> {post.content}</div>
-                            {post.attachments.map(attachment => {
+                            {post.attachments&&post.attachments.map(attachment => {
                               return (
                                 <Col
                                   key={attachment.driveId}
@@ -318,9 +317,6 @@ class CourseDetail extends Component {
                       )
                     })
                   }
-
-
-
                 </Col>
               </Row>
             </TabPane>
