@@ -5,6 +5,7 @@ import { CoursesLayout } from 'components';
 import { FetchUtils } from 'utils'
 import './courseDetail.less';
 import Exercise from "../Exercise";
+import ClassMate from '../ClassMate'
 
 const TabPane = Tabs.TabPane;
 const { TextArea } = Input;
@@ -135,7 +136,7 @@ class CourseDetail extends Component {
     let path = window.location.pathname;
     let result = await FetchUtils.get(`/posts/${path}`);
     this.setState({
-      posts: result
+      posts: result 
     })
   };
 
@@ -199,7 +200,7 @@ class CourseDetail extends Component {
                     <div className="title">Sắp đến hạn</div>
                     <div>
                       {
-                        data.expiredExercise.map((element, index) => {
+                        data.expiredExercise&&data.expiredExercise.map((element, index) => {
                           return <div key={index} className="expired-block">
                             <span
                               className="description-day">{element.timeDescription}</span>
@@ -289,7 +290,7 @@ class CourseDetail extends Component {
                           </Row>
                           <Row>
                             <div className="status"> {post.content}</div>
-                            {post.attachments.map(attachment => {
+                            {post.attachments&&post.attachments.map(attachment => {
                               return (
                                 <Col
                                   key={attachment.driveId}
@@ -323,9 +324,6 @@ class CourseDetail extends Component {
                       )
                     })
                   }
-
-
-
                 </Col>
               </Row>
             </TabPane>
@@ -333,7 +331,7 @@ class CourseDetail extends Component {
               <Exercise/>
             </TabPane>
             <TabPane tab={<span><Icon type="android" />Mọi người</span>} key="3">
-              Bài tập trên lớp
+              <ClassMate />
             </TabPane>
           </Tabs>
         </Row>
