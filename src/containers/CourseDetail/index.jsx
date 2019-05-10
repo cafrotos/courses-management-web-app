@@ -205,7 +205,7 @@ class CourseDetail extends Component {
                               className="description-day">{element.timeDescription}</span>
                             <div>
                               {
-                                element.exercise.map((excrise, index) => {
+                                element.exercise&&element.exercise.map((excrise, index) => {
                                   return <div>
                                     <a>{excrise.expriedTime} – {excrise.name}</a>
                                   </div>
@@ -269,7 +269,7 @@ class CourseDetail extends Component {
                   </div>
 
                   {
-                    posts.map(post => {
+                    posts&&posts.map(post => {
                       return (
                         <Card className="post" style={{ marginTop: 16 }} bordered={true} loading={false}>
                           <Row className="row-infor">
