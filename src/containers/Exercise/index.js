@@ -19,9 +19,11 @@ import {
 import { withRouter } from 'react-router-dom';
 import { FetchUtils } from 'utils'
 import './Exercise.less';
+import moment from 'moment';
 
 const TabPane = Tabs.TabPane;
 const { TextArea } = Input;
+const date = new Date();
 
 const content = (
   <div>
@@ -45,7 +47,12 @@ class Exercise extends Component {
     this.state = {
       loading: false,
       visible: false,
-      exercises: []
+      exercises: [],
+      content: null,
+      point: 10,
+      startedAt: date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate(),
+      exprisedAt: date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate(),
+      formData: new FormData()
     }
   }
 
@@ -60,14 +67,47 @@ class Exercise extends Component {
   };
 
   onChangeInputNumber = (value) => {
-    console.log("helloooooooo", value);
+    this.setState({
+      point: value
+    })
   };
 
-  handleOk = () => {
+  customRequest = async (info) => {
+    if(!this.state.formData) {
+      await this.setState({
+        formData:  new FormData()
+      })
+    }
+    let data = this.state.formData;
+    data.append('files', info.file);
+
+    this.setState({
+      formData: data
+    })
+  }
+
+  handleOk = async () => {
     this.setState({ loading: true });
-    setTimeout(() => {
+    let data = this.state.formData;
+    data.append('content', this.state.content);
+    data.append('point', this.state.point);
+    data.append('startedAt', this.state.startedAt);
+    data.append('exprisedAt', this.state.exprisedAt);
+    let response = await FetchUtils.post('/exercises/' + window.location.pathname, data, true);
+
+    if(response.status === 200) {
+      notification.success({
+        message: "Thành công"
+      })
       this.setState({ loading: false, visible: false });
-    }, 3000);
+      this.fetchExercises()
+    }
+    else {
+      notification.error({
+        message: "Thất bại"
+      })
+      this.setState({ loading: false, visible: false });
+    }
   };
 
   handleCancel = () => {
@@ -82,6 +122,20 @@ class Exercise extends Component {
         exercises: exercises
       })
     }
+  }
+
+  onChangeContent = (event) => {
+    this.setState({
+      content: event.target.value
+    })
+  }
+
+  onChangeExprisedAt = async (event) => {
+    let date = moment(event).format('l');
+    date = date.split('/')
+    this.setState({
+      exprisedAt: date[2] + '-' + date[0] + '-' + date[1]
+    })
   }
 
   render() {
@@ -101,7 +155,7 @@ class Exercise extends Component {
               footer={[
                 <Row>
                   <Col span={10} style={{ textAlign: 'left' }}>
-                    <Upload>
+                    <Upload customRequest={this.customRequest}>
                       <Button
                         icon="paper-clip"
                         shape="circle"
@@ -124,17 +178,17 @@ class Exercise extends Component {
               </Row> */}
               <Row>
                 <TextArea placeholder="Đề bài" style={{ marginBottom: 20 }}
-                  autosize={{ minRows: 4, maxRows: 6 }} />
+                  autosize={{ minRows: 4, maxRows: 6 }} onChange={this.onChangeContent} />
               </Row>
               <Row>
                 <Col span={5}>
-                  <div><span style={{ marginRight: 5 }}>Điểm:</span><InputNumber min={0} max={100} defaultValue={3}
+                  <div><span style={{ marginRight: 5 }}>Điểm:</span><InputNumber min={0} max={100} defaultValue={10}
                     onChange={this.onChangeInputNumber} />
                   </div>
                 </Col>
                 <Col span={10} offset={1}>
                   <div><span style={{ marginRight: 5 }}>Đến hạn:</span><DatePicker placeholder="Ngày hết hạn"
-                    format="DD/MM/YYYY" /></div>
+                    format="DD/MM/YYYY" onChange={this.onChangeExprisedAt} /></div>
                 </Col>
                 <Col span={19}>
                 </Col>
