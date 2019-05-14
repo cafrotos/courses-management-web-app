@@ -5,9 +5,9 @@ import "./header.less"
 import { CreateCourses } from "..";
 
 const { Header } = Layout;
-const SECTION = localStorage.getItem('section');
 
 export default (props) => {
+  const SECTION = localStorage.getItem('section');
   let { toggle, collapsed } = props
   return (
     <Header className="header">
